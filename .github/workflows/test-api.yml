@@ -20,15 +20,13 @@ jobs:
       - name: Run tests
         run: robot -d reports -r index.html .
 
-      - name: Upload reports
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: robot-reports
           path: reports
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+      - uses: JamesIves/github-pages-deploy-action@v4
         if: always()
         with:
           branch: gh-pages
