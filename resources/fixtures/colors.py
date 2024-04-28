@@ -1,4 +1,11 @@
-COLORS = [
+COLORS_PAGE = {
+    "page": 1,
+    "per_page": 6,
+    "total": 12,
+    "total_pages": 2,
+}
+
+COLORS_DATA = [
     {
         "id": 1,
         "name": "cerulean",
