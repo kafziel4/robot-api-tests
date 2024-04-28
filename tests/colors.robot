@@ -6,8 +6,7 @@ Resource            ../resources/base.resource
 
 *** Test Cases ***
 GET to /colors should return status 200 and a list of colors
-    ${expected_page}    Set Variable    ${COLORS_PAGE}
-    ${expected_data}    Set Variable    ${COLORS_DATA}
+    ${expected_response}    Set Variable    ${COLORS}
 
     ${response}    Get Colors
 
@@ -15,8 +14,7 @@ GET to /colors should return status 200 and a list of colors
     Header Should Be    ${response}    ${CONTENT_TYPE}    ${APPLICATION_JSON}
 
     &{content}    Get JSON content    ${response}
-    Dictionary Should Contain Sub Dictionary    ${content}    ${expected_page}
-    Lists Should Be Equal    ${content.data}    ${expected_data}
+    Dictionaries Should Be Equal    ${content}    ${expected_response}    ignore_keys=${IGNORED}
 
 GET to /colors/id for an existing color should return status 200 and the color data
     &{expected_data}    Create Dictionary

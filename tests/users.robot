@@ -7,8 +7,7 @@ Resource            ../resources/base.resource
 *** Test Cases ***
 GET to /users should return status 200 and a list of users
     ${page}    Set Variable    2
-    ${expected_page}    Set Variable    ${USERS_PAGE}
-    ${expected_data}    Set Variable    ${USERS_DATA}
+    ${expected_response}    Set Variable    ${USERS}
 
     ${response}    Get Users    page=${page}
 
@@ -16,8 +15,7 @@ GET to /users should return status 200 and a list of users
     Header Should Be    ${response}    ${CONTENT_TYPE}    ${APPLICATION_JSON}
 
     &{content}    Get JSON content    ${response}
-    Dictionary Should Contain Sub Dictionary    ${content}    ${expected_page}
-    Lists Should Be Equal    ${content.data}    ${expected_data}
+    Dictionaries Should Be Equal    ${content}    ${expected_response}    ignore_keys=${IGNORED}
 
 GET to /users/id for an existing user should return status 200 and the user data
     &{expected_data}    Create Dictionary
