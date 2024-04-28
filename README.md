@@ -1,4 +1,8 @@
-# Robot Framework
+# Robot Framework API Tests
+
+![Python](https://img.shields.io/badge/Python-FFD343?style=for-the-badge&logo=Python&logoColor=3776AB)
+![Robot Framework](https://img.shields.io/badge/robotframework-000000?style=for-the-badge&logo=robotframework)
+![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=GitHub%20Actions&logoColor=white)
 
 A sample API test automation project in [Robot Framework](https://robotframework.org/), using [RequestsLibrary](https://marketsquare.github.io/robotframework-requests/).
 
