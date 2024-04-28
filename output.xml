@@ -1,743 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.12.3 on linux)" generated="2024-04-20T20:52:53.942823" rpa="false" schemaversion="5">
+<robot generator="Robot 7.0 (Python 3.12.3 on linux)" generated="2024-04-28T04:48:05.639622" rpa="false" schemaversion="5">
 <suite id="s1" name="Robot-Api-Tests" source="/home/runner/work/robot-api-tests/robot-api-tests">
 <suite id="s1-s1" name="Tests" source="/home/runner/work/robot-api-tests/robot-api-tests/tests">
-<suite id="s1-s1-s1" name="Reqres" source="/home/runner/work/robot-api-tests/robot-api-tests/tests/reqres.robot">
-<test id="s1-s1-s1-t1" name="GET to /users should return status 200 and a list of users" line="18">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2024-04-20T20:52:54.094073" level="INFO">&amp;{params} = { page=2 }</msg>
-<var>&amp;{params}</var>
-<arg>page=2</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.093744" elapsed="0.000365"/>
-</kw>
-<kw name="GET" owner="RequestsLibrary">
-<msg time="2024-04-20T20:52:54.365046" level="INFO">GET Request : url=https://reqres.in/api/users?page=2 
- path_url=/api/users?page=2 
- headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
- body=None 
- </msg>
-<msg time="2024-04-20T20:52:54.365239" level="INFO">GET Response : url=https://reqres.in/api/users?page=2 
- status=200, reason=OK 
- headers={'Date': 'Sat, 20 Apr 2024 20:52:54 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1713631814&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=3F8z1RymJbZ%2FbbLYdPD1U0XybPhaF%2FJW464iKfzmt30%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1713631814&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=3F8z1RymJbZ%2FbbLYdPD1U0XybPhaF%2FJW464iKfzmt30%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"406-ut0vzoCuidvyMf8arZpMpJ6ZRDw"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'REVALIDATED', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '8778054e8d243b3e-IAD', 'Content-Encoding': 'gzip'} 
- body={"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} 
- </msg>
-<msg time="2024-04-20T20:52:54.365387" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>url=${HOST}/users</arg>
-<arg>params=&amp;{params}</arg>
-<arg>expected_status=200</arg>
-<doc>Sends a GET request.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.094237" elapsed="0.271176"/>
-</kw>
-<kw name="Header Should Be">
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${response.headers}[${header}]</arg>
-<arg>${expected}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.366082" elapsed="0.000550"/>
-</kw>
-<arg>${response}</arg>
-<arg>${CONTENT_TYPE}</arg>
-<arg>${APPLICATION_JSON}</arg>
-<status status="PASS" start="2024-04-20T20:52:54.365669" elapsed="0.001023"/>
-</kw>
-<kw name="Get JSON content">
+<suite id="s1-s1-s1" name="Colors" source="/home/runner/work/robot-api-tests/robot-api-tests/tests/colors.robot">
+<test id="s1-s1-s1-t1" name="GET to /colors should return status 200 and a list of colors" line="8">
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-04-20T20:52:54.367621" level="INFO">&amp;{content} = { page=2 | per_page=6 | total=12 | total_pages=2 | data=[{'id': 7, 'email': 'michael.lawson@reqres.in', 'first_name': 'Michael', 'last_name': 'Lawson', 'avatar': 'https://reqres.in/img/faces/7-image.j...</msg>
-<var>&amp;{content}</var>
-<arg>${response.json()}</arg>
+<msg time="2024-04-28T04:48:05.729259" level="INFO">${expected_page} = {'page': 1, 'per_page': 6, 'total': 12, 'total_pages': 2}</msg>
+<var>${expected_page}</var>
+<arg>${COLORS_PAGE}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.367046" elapsed="0.000600"/>
+<status status="PASS" start="2024-04-28T04:48:05.729073" elapsed="0.000217"/>
 </kw>
-<return>
-<value>&amp;{content}</value>
-<status status="PASS" start="2024-04-20T20:52:54.367696" elapsed="0.000045"/>
-</return>
-<msg time="2024-04-20T20:52:54.367931" level="INFO">&amp;{content} = { page=2 | per_page=6 | total=12 | total_pages=2 | data=[{'id': 7, 'email': 'michael.lawson@reqres.in', 'first_name': 'Michael', 'last_name': 'Lawson', 'avatar': 'https://reqres.in/img/faces/7-image.j...</msg>
-<var>&amp;{content}</var>
-<arg>${response}</arg>
-<status status="PASS" start="2024-04-20T20:52:54.366827" elapsed="0.001125"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.page}</arg>
-<arg>${2}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.368039" elapsed="0.000584"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.per_page}</arg>
-<arg>${6}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.368714" elapsed="0.000570"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.total}</arg>
-<arg>${12}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.369371" elapsed="0.000535"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.total_pages}</arg>
-<arg>${2}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.369989" elapsed="0.000503"/>
-</kw>
-<kw name="Get Length" owner="BuiltIn">
-<msg time="2024-04-20T20:52:54.370895" level="INFO">Length is 6.</msg>
-<msg time="2024-04-20T20:52:54.370949" level="INFO">${length} = 6</msg>
-<var>${length}</var>
-<arg>${content.data}</arg>
-<doc>Returns and logs the length of the given item as an integer.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.370576" elapsed="0.000389"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${length}</arg>
-<arg>${6}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.371050" elapsed="0.000291"/>
-</kw>
-<for flavor="IN RANGE">
-<iter>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][id]</arg>
-<arg>${USERS}[${i}][id]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.371615" elapsed="0.000445"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][email]</arg>
-<arg>${USERS}[${i}][email]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.372142" elapsed="0.000421"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][first_name]</arg>
-<arg>${USERS}[${i}][first_name]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.372644" elapsed="0.000424"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][last_name]</arg>
-<arg>${USERS}[${i}][last_name]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.373167" elapsed="0.000423"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][avatar]</arg>
-<arg>${USERS}[${i}][avatar]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.373669" elapsed="0.000422"/>
-</kw>
-<var name="${i}">0</var>
-<status status="PASS" start="2024-04-20T20:52:54.371550" elapsed="0.002572"/>
-</iter>
-<iter>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][id]</arg>
-<arg>${USERS}[${i}][id]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.374338" elapsed="0.000442"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][email]</arg>
-<arg>${USERS}[${i}][email]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.374866" elapsed="0.000421"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][first_name]</arg>
-<arg>${USERS}[${i}][first_name]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.375368" elapsed="0.000423"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][last_name]</arg>
-<arg>${USERS}[${i}][last_name]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.375872" elapsed="0.000430"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][avatar]</arg>
-<arg>${USERS}[${i}][avatar]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.376383" elapsed="0.000425"/>
-</kw>
-<var name="${i}">1</var>
-<status status="PASS" start="2024-04-20T20:52:54.374272" elapsed="0.002567"/>
-</iter>
-<iter>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][id]</arg>
-<arg>${USERS}[${i}][id]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.376991" elapsed="0.000457"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][email]</arg>
-<arg>${USERS}[${i}][email]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.377530" elapsed="0.000552"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][first_name]</arg>
-<arg>${USERS}[${i}][first_name]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.378165" elapsed="0.000423"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][last_name]</arg>
-<arg>${USERS}[${i}][last_name]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.378677" elapsed="0.000426"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][avatar]</arg>
-<arg>${USERS}[${i}][avatar]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.379186" elapsed="0.000417"/>
-</kw>
-<var name="${i}">2</var>
-<status status="PASS" start="2024-04-20T20:52:54.376927" elapsed="0.002707"/>
-</iter>
-<iter>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][id]</arg>
-<arg>${USERS}[${i}][id]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.379777" elapsed="0.000413"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][email]</arg>
-<arg>${USERS}[${i}][email]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.380271" elapsed="0.000407"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][first_name]</arg>
-<arg>${USERS}[${i}][first_name]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.380757" elapsed="0.000428"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][last_name]</arg>
-<arg>${USERS}[${i}][last_name]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.381266" elapsed="0.000417"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][avatar]</arg>
-<arg>${USERS}[${i}][avatar]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.381761" elapsed="0.000414"/>
-</kw>
-<var name="${i}">3</var>
-<status status="PASS" start="2024-04-20T20:52:54.379718" elapsed="0.002487"/>
-</iter>
-<iter>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][id]</arg>
-<arg>${USERS}[${i}][id]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.382348" elapsed="0.000412"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][email]</arg>
-<arg>${USERS}[${i}][email]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.382838" elapsed="0.000404"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][first_name]</arg>
-<arg>${USERS}[${i}][first_name]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.383317" elapsed="0.000415"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][last_name]</arg>
-<arg>${USERS}[${i}][last_name]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.383809" elapsed="0.000408"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][avatar]</arg>
-<arg>${USERS}[${i}][avatar]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.384294" elapsed="0.000412"/>
-</kw>
-<var name="${i}">4</var>
-<status status="PASS" start="2024-04-20T20:52:54.382290" elapsed="0.002446"/>
-</iter>
-<iter>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][id]</arg>
-<arg>${USERS}[${i}][id]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.384881" elapsed="0.000442"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][email]</arg>
-<arg>${USERS}[${i}][email]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.385410" elapsed="0.000423"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][first_name]</arg>
-<arg>${USERS}[${i}][first_name]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.385911" elapsed="0.000424"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][last_name]</arg>
-<arg>${USERS}[${i}][last_name]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.386414" elapsed="0.000410"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][avatar]</arg>
-<arg>${USERS}[${i}][avatar]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.386902" elapsed="0.000420"/>
-</kw>
-<var name="${i}">5</var>
-<status status="PASS" start="2024-04-20T20:52:54.384819" elapsed="0.002533"/>
-</iter>
-<var>${i}</var>
-<value>${length}</value>
-<status status="PASS" start="2024-04-20T20:52:54.371405" elapsed="0.015971"/>
-</for>
-<status status="PASS" start="2024-04-20T20:52:54.093117" elapsed="0.294358"/>
-</test>
-<test id="s1-s1-s1-t2" name="GET to /users/id for an existing user should return status 200 and the user data" line="41">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2024-04-20T20:52:54.388477" level="INFO">&amp;{expected_data} = { id=2 | email=janet.weaver@reqres.in | first_name=Janet | last_name=Weaver | avatar=https://reqres.in/img/faces/2-image.jpg }</msg>
-<var>&amp;{expected_data}</var>
-<arg>id=${2}</arg>
-<arg>email=janet.weaver@reqres.in</arg>
-<arg>first_name=Janet</arg>
-<arg>last_name=Weaver</arg>
-<arg>avatar=https://reqres.in/img/faces/2-image.jpg</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.388055" elapsed="0.000444"/>
-</kw>
-<kw name="GET" owner="RequestsLibrary">
-<msg time="2024-04-20T20:52:54.452228" level="INFO">GET Request : url=https://reqres.in/api/users/2 
- path_url=/api/users/2 
- headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
- body=None 
- </msg>
-<msg time="2024-04-20T20:52:54.452389" level="INFO">GET Response : url=https://reqres.in/api/users/2 
- status=200, reason=OK 
- headers={'Date': 'Sat, 20 Apr 2024 20:52:54 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1713641446&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=oOicuJvfhChjFIMOgvgmsZkA%2BM3YwGtGb%2B%2BjDRqi8DM%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1713641446&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=oOicuJvfhChjFIMOgvgmsZkA%2BM3YwGtGb%2B%2BjDRqi8DM%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"118-pbdwwFo9SKNhD3Lx5iHJyngpq00"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '4928', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '8778055038787fc3-IAD', 'Content-Encoding': 'gzip'} 
- body={"data":{"id":2,"email":"janet.weaver@reqres.in","first_name":"Janet","last_name":"Weaver","avatar":"https://reqres.in/img/faces/2-image.jpg"},"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} 
- </msg>
-<msg time="2024-04-20T20:52:54.452514" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>url=${HOST}/users/2</arg>
-<arg>expected_status=200</arg>
-<doc>Sends a GET request.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.388589" elapsed="0.063947"/>
-</kw>
-<kw name="Header Should Be">
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${response.headers}[${header}]</arg>
-<arg>${expected}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.453044" elapsed="0.000509"/>
-</kw>
-<arg>${response}</arg>
-<arg>${CONTENT_TYPE}</arg>
-<arg>${APPLICATION_JSON}</arg>
-<status status="PASS" start="2024-04-20T20:52:54.452713" elapsed="0.000895"/>
-</kw>
-<kw name="Get JSON content">
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-04-20T20:52:54.454378" level="INFO">&amp;{content} = { data={'id': 2, 'email': 'janet.weaver@reqres.in', 'first_name': 'Janet', 'last_name': 'Weaver', 'avatar': 'https://reqres.in/img/faces/2-image.jpg'} | support={'url': 'https://reqres.in/#support-hea...</msg>
-<var>&amp;{content}</var>
-<arg>${response.json()}</arg>
+<msg time="2024-04-28T04:48:05.729566" level="INFO">${expected_data} = [{'id': 1, 'name': 'cerulean', 'year': 2000, 'color': '#98B2D1', 'pantone_value': '15-4020'}, {'id': 2, 'name': 'fuchsia rose', 'year': 2001, 'color': '#C74375', 'pantone_value': '17-2031'}, {'id': 3,...</msg>
+<var>${expected_data}</var>
+<arg>${COLORS_DATA}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.453934" elapsed="0.000466"/>
+<status status="PASS" start="2024-04-28T04:48:05.729413" elapsed="0.000176"/>
 </kw>
-<return>
-<value>&amp;{content}</value>
-<status status="PASS" start="2024-04-20T20:52:54.454446" elapsed="0.000042"/>
-</return>
-<msg time="2024-04-20T20:52:54.454628" level="INFO">&amp;{content} = { data={'id': 2, 'email': 'janet.weaver@reqres.in', 'first_name': 'Janet', 'last_name': 'Weaver', 'avatar': 'https://reqres.in/img/faces/2-image.jpg'} | support={'url': 'https://reqres.in/#support-hea...</msg>
-<var>&amp;{content}</var>
-<arg>${response}</arg>
-<status status="PASS" start="2024-04-20T20:52:54.453727" elapsed="0.000920"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data.id}</arg>
-<arg>${expected_data.id}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.454727" elapsed="0.000675"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data.email}</arg>
-<arg>${expected_data.email}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.455488" elapsed="0.000603"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data.first_name}</arg>
-<arg>${expected_data.first_name}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.456175" elapsed="0.002776"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data.last_name}</arg>
-<arg>${expected_data.last_name}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.459048" elapsed="0.000586"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data.avatar}</arg>
-<arg>${expected_data.avatar}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.459722" elapsed="0.000572"/>
-</kw>
-<status status="PASS" start="2024-04-20T20:52:54.387719" elapsed="0.072676"/>
-</test>
-<test id="s1-s1-s1-t3" name="GET to /users/id for a user that does not exist should return status 404" line="59">
+<kw name="Get Colors" owner="reqres">
 <kw name="GET" owner="RequestsLibrary">
-<msg time="2024-04-20T20:52:54.722331" level="INFO">GET Request : url=https://reqres.in/api/users/23 
- path_url=/api/users/23 
- headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
- body=None 
- </msg>
-<msg time="2024-04-20T20:52:54.722432" level="INFO">GET Response : url=https://reqres.in/api/users/23 
- status=404, reason=Not Found 
- headers={'Date': 'Sat, 20 Apr 2024 20:52:54 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '2', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1713646374&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=bjrmyA4s%2Br8lSDCPgVL3RQzfW5qj0tUFXt9puBIXp1g%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1713646374&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=bjrmyA4s%2Br8lSDCPgVL3RQzfW5qj0tUFXt9puBIXp1g%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'EXPIRED', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '87780550afe93af9-IAD'} 
- body={} 
- </msg>
-<msg time="2024-04-20T20:52:54.722563" level="INFO">${response} = &lt;Response [404]&gt;</msg>
-<var>${response}</var>
-<arg>url=${HOST}/users/23</arg>
-<arg>expected_status=404</arg>
-<doc>Sends a GET request.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.460917" elapsed="0.261670"/>
-</kw>
-<kw name="Header Should Be">
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${response.headers}[${header}]</arg>
-<arg>${expected}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.723127" elapsed="0.000461"/>
-</kw>
-<arg>${response}</arg>
-<arg>${CONTENT_TYPE}</arg>
-<arg>${APPLICATION_JSON}</arg>
-<status status="PASS" start="2024-04-20T20:52:54.722785" elapsed="0.000856"/>
-</kw>
-<kw name="Should Be Empty" owner="BuiltIn">
-<msg time="2024-04-20T20:52:54.724064" level="INFO">Length is 0.</msg>
-<arg>${response.json()}</arg>
-<doc>Verifies that the given item is empty.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.723720" elapsed="0.000377"/>
-</kw>
-<status status="PASS" start="2024-04-20T20:52:54.460584" elapsed="0.263598"/>
-</test>
-<test id="s1-s1-s1-t4" name="GET to /colors should return status 200 and a list of colors" line="64">
-<kw name="GET" owner="RequestsLibrary">
-<msg time="2024-04-20T20:52:54.980456" level="INFO">GET Request : url=https://reqres.in/api/colors 
+<msg time="2024-04-28T04:48:05.790633" level="INFO">GET Request : url=https://reqres.in/api/colors 
  path_url=/api/colors 
  headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg time="2024-04-20T20:52:54.980526" level="INFO">GET Response : url=https://reqres.in/api/colors 
+<msg time="2024-04-28T04:48:05.790761" level="INFO">GET Response : url=https://reqres.in/api/colors 
  status=200, reason=OK 
- headers={'Date': 'Sat, 20 Apr 2024 20:52:54 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1713646374&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=bjrmyA4s%2Br8lSDCPgVL3RQzfW5qj0tUFXt9puBIXp1g%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1713646374&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=bjrmyA4s%2Br8lSDCPgVL3RQzfW5qj0tUFXt9puBIXp1g%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"2c1-N6Rqerxquq2kgQhL51EiSg4x0R8"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'MISS', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '877805525cd53b80-IAD', 'Content-Encoding': 'gzip'} 
+ headers={'Date': 'Sun, 28 Apr 2024 04:48:05 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1714259787&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=AafnMYr0hjkB5AlOFO2L4q7C3BvEk0ePrL1myVtwHsg%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1714259787&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=AafnMYr0hjkB5AlOFO2L4q7C3BvEk0ePrL1myVtwHsg%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"2c1-N6Rqerxquq2kgQhL51EiSg4x0R8"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '2426', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '87b46b041bfa22c6-SJC', 'Content-Encoding': 'gzip'} 
  body={"page":1,"per_page":6,"total":12,"total_pages":2,"data":[{"id":1,"name":"cerulean","year":2000,"color":"#98B2D1","pantone_value":"15-4020"},{"id":2,"name":"fuchsia rose","year":2001,"color":"#C74375","pantone_value":"17-2031"},{"id":3,"name":"true red","year":2002,"color":"#BF1932","pantone_value":"19-1664"},{"id":4,"name":"aqua sky","year":2003,"color":"#7BC4C4","pantone_value":"14-4811"},{"id":5,"name":"tigerlily","year":2004,"color":"#E2583E","pantone_value":"17-1456"},{"id":6,"name":"blue turquoise","year":2005,"color":"#53B0AE","pantone_value":"15-5217"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} 
  </msg>
-<msg time="2024-04-20T20:52:54.980678" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2024-04-28T04:48:05.790889" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
-<arg>url=${HOST}/colors</arg>
-<arg>expected_status=200</arg>
+<arg>url=${HOST}/${COLORS_PATH}</arg>
+<arg>expected_status=any</arg>
 <doc>Sends a GET request.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.724673" elapsed="0.256025"/>
+<status status="PASS" start="2024-04-28T04:48:05.730025" elapsed="0.060885"/>
 </kw>
-<kw name="Header Should Be">
+<return>
+<value>${response}</value>
+<status status="PASS" start="2024-04-28T04:48:05.790976" elapsed="0.000048"/>
+</return>
+<msg time="2024-04-28T04:48:05.791148" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<status status="PASS" start="2024-04-28T04:48:05.729761" elapsed="0.061406"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2024-04-28T04:48:05.791275" elapsed="0.000210"/>
+</kw>
+<kw name="Header Should Be" owner="base">
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${response.headers}[${header}]</arg>
 <arg>${expected}</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.981187" elapsed="0.000486"/>
+<status status="PASS" start="2024-04-28T04:48:05.791936" elapsed="0.000523"/>
 </kw>
 <arg>${response}</arg>
 <arg>${CONTENT_TYPE}</arg>
 <arg>${APPLICATION_JSON}</arg>
-<status status="PASS" start="2024-04-20T20:52:54.980855" elapsed="0.000872"/>
+<status status="PASS" start="2024-04-28T04:48:05.791620" elapsed="0.000894"/>
 </kw>
-<kw name="Get JSON content">
+<kw name="Get JSON content" owner="base">
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-04-20T20:52:54.982531" level="INFO">&amp;{content} = { page=1 | per_page=6 | total=12 | total_pages=2 | data=[{'id': 1, 'name': 'cerulean', 'year': 2000, 'color': '#98B2D1', 'pantone_value': '15-4020'}, {'id': 2, 'name': 'fuchsia rose', 'year': 2001, 'c...</msg>
-<var>&amp;{content}</var>
+<msg time="2024-04-28T04:48:05.793299" level="INFO">${content} = {'page': 1, 'per_page': 6, 'total': 12, 'total_pages': 2, 'data': [{'id': 1, 'name': 'cerulean', 'year': 2000, 'color': '#98B2D1', 'pantone_value': '15-4020'}, {'id': 2, 'name': 'fuchsia rose', 'year'...</msg>
+<var>${content}</var>
 <arg>${response.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.982039" elapsed="0.000514"/>
+<status status="PASS" start="2024-04-28T04:48:05.792859" elapsed="0.000461"/>
 </kw>
 <return>
-<value>&amp;{content}</value>
-<status status="PASS" start="2024-04-20T20:52:54.982595" elapsed="0.000034"/>
+<value>${content}</value>
+<status status="PASS" start="2024-04-28T04:48:05.793359" elapsed="0.000027"/>
 </return>
-<msg time="2024-04-20T20:52:54.982790" level="INFO">&amp;{content} = { page=1 | per_page=6 | total=12 | total_pages=2 | data=[{'id': 1, 'name': 'cerulean', 'year': 2000, 'color': '#98B2D1', 'pantone_value': '15-4020'}, {'id': 2, 'name': 'fuchsia rose', 'year': 2001, 'c...</msg>
+<msg time="2024-04-28T04:48:05.793665" level="INFO">&amp;{content} = { page=1 | per_page=6 | total=12 | total_pages=2 | data=[{'id': 1, 'name': 'cerulean', 'year': 2000, 'color': '#98B2D1', 'pantone_value': '15-4020'}, {'id': 2, 'name': 'fuchsia rose', 'year': 2001, 'c...</msg>
 <var>&amp;{content}</var>
 <arg>${response}</arg>
-<status status="PASS" start="2024-04-20T20:52:54.981838" elapsed="0.000972"/>
+<status status="PASS" start="2024-04-28T04:48:05.792640" elapsed="0.001047"/>
 </kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.page}</arg>
-<arg>${1}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.982890" elapsed="0.000531"/>
+<kw name="Dictionary Should Contain Sub Dictionary" owner="Collections">
+<msg time="2024-04-28T04:48:05.793951" level="INFO">False</msg>
+<arg>${content}</arg>
+<arg>${expected_page}</arg>
+<doc>Fails unless all items in ``dict2`` are found from ``dict1``.</doc>
+<status status="PASS" start="2024-04-28T04:48:05.793773" elapsed="0.000213"/>
 </kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.per_page}</arg>
-<arg>${6}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.983505" elapsed="0.000507"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.total}</arg>
-<arg>${12}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.984095" elapsed="0.000516"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.total_pages}</arg>
-<arg>${2}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.984693" elapsed="0.000516"/>
-</kw>
-<kw name="Get Length" owner="BuiltIn">
-<msg time="2024-04-20T20:52:54.985604" level="INFO">Length is 6.</msg>
-<msg time="2024-04-20T20:52:54.985657" level="INFO">${length} = 6</msg>
-<var>${length}</var>
+<kw name="Lists Should Be Equal" owner="Collections">
+<msg time="2024-04-28T04:48:05.794530" level="INFO">False</msg>
 <arg>${content.data}</arg>
-<doc>Returns and logs the length of the given item as an integer.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.985292" elapsed="0.000380"/>
+<arg>${expected_data}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="PASS" start="2024-04-28T04:48:05.794078" elapsed="0.000483"/>
 </kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${length}</arg>
-<arg>${6}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.985749" elapsed="0.000278"/>
-</kw>
-<for flavor="IN RANGE">
-<iter>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][id]</arg>
-<arg>${COLORS}[${i}][id]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.986273" elapsed="0.000430"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][name]</arg>
-<arg>${COLORS}[${i}][name]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.986783" elapsed="0.000414"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][year]</arg>
-<arg>${COLORS}[${i}][year]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.987286" elapsed="0.000404"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][color]</arg>
-<arg>${COLORS}[${i}][color]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.987766" elapsed="0.000426"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][pantone_value]</arg>
-<arg>${COLORS}[${i}][pantone_value]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.988269" elapsed="0.000406"/>
-</kw>
-<var name="${i}">0</var>
-<status status="PASS" start="2024-04-20T20:52:54.986213" elapsed="0.002492"/>
-</iter>
-<iter>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][id]</arg>
-<arg>${COLORS}[${i}][id]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.988847" elapsed="0.001660"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][name]</arg>
-<arg>${COLORS}[${i}][name]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.990603" elapsed="0.000455"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][year]</arg>
-<arg>${COLORS}[${i}][year]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.991140" elapsed="0.000420"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][color]</arg>
-<arg>${COLORS}[${i}][color]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.991639" elapsed="0.000416"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][pantone_value]</arg>
-<arg>${COLORS}[${i}][pantone_value]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.992134" elapsed="0.000417"/>
-</kw>
-<var name="${i}">1</var>
-<status status="PASS" start="2024-04-20T20:52:54.988790" elapsed="0.003791"/>
-</iter>
-<iter>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][id]</arg>
-<arg>${COLORS}[${i}][id]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.992723" elapsed="0.000433"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][name]</arg>
-<arg>${COLORS}[${i}][name]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.993276" elapsed="0.000415"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][year]</arg>
-<arg>${COLORS}[${i}][year]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.993771" elapsed="0.000401"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][color]</arg>
-<arg>${COLORS}[${i}][color]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.994251" elapsed="0.000397"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][pantone_value]</arg>
-<arg>${COLORS}[${i}][pantone_value]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.994724" elapsed="0.000417"/>
-</kw>
-<var name="${i}">2</var>
-<status status="PASS" start="2024-04-20T20:52:54.992666" elapsed="0.002505"/>
-</iter>
-<iter>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][id]</arg>
-<arg>${COLORS}[${i}][id]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.995315" elapsed="0.000417"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][name]</arg>
-<arg>${COLORS}[${i}][name]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.995811" elapsed="0.000407"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][year]</arg>
-<arg>${COLORS}[${i}][year]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.996295" elapsed="0.000425"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][color]</arg>
-<arg>${COLORS}[${i}][color]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.996799" elapsed="0.000427"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][pantone_value]</arg>
-<arg>${COLORS}[${i}][pantone_value]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.997303" elapsed="0.000403"/>
-</kw>
-<var name="${i}">3</var>
-<status status="PASS" start="2024-04-20T20:52:54.995256" elapsed="0.002481"/>
-</iter>
-<iter>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][id]</arg>
-<arg>${COLORS}[${i}][id]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.997876" elapsed="0.000404"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][name]</arg>
-<arg>${COLORS}[${i}][name]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.998358" elapsed="0.000397"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][year]</arg>
-<arg>${COLORS}[${i}][year]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.998829" elapsed="0.000395"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][color]</arg>
-<arg>${COLORS}[${i}][color]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.999300" elapsed="0.000393"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][pantone_value]</arg>
-<arg>${COLORS}[${i}][pantone_value]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:54.999767" elapsed="0.000394"/>
-</kw>
-<var name="${i}">4</var>
-<status status="PASS" start="2024-04-20T20:52:54.997820" elapsed="0.002370"/>
-</iter>
-<iter>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][id]</arg>
-<arg>${COLORS}[${i}][id]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.000329" elapsed="0.000403"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][name]</arg>
-<arg>${COLORS}[${i}][name]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.000805" elapsed="0.000423"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][year]</arg>
-<arg>${COLORS}[${i}][year]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.001303" elapsed="0.000399"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][color]</arg>
-<arg>${COLORS}[${i}][color]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.001776" elapsed="0.000390"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data}[${i}][pantone_value]</arg>
-<arg>${COLORS}[${i}][pantone_value]</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.002240" elapsed="0.000394"/>
-</kw>
-<var name="${i}">5</var>
-<status status="PASS" start="2024-04-20T20:52:55.000273" elapsed="0.002390"/>
-</iter>
-<var>${i}</var>
-<value>${length}</value>
-<status status="PASS" start="2024-04-20T20:52:54.986085" elapsed="0.016604"/>
-</for>
-<status status="PASS" start="2024-04-20T20:52:54.724388" elapsed="0.278389"/>
+<status status="PASS" start="2024-04-28T04:48:05.728418" elapsed="0.066236"/>
 </test>
-<test id="s1-s1-s1-t5" name="GET to /colors/id for an existing color should return status 200 and the color data" line="85">
+<test id="s1-s1-s1-t2" name="GET to /colors/id for an existing color should return status 200 and the color data" line="21">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2024-04-20T20:52:55.003822" level="INFO">&amp;{expected_data} = { id=2 | name=fuchsia rose | year=2001 | color=#C74375 | pantone_value=17-2031 }</msg>
+<msg time="2024-04-28T04:48:05.795992" level="INFO">&amp;{expected_data} = { id=2 | name=fuchsia rose | year=2001 | color=#C74375 | pantone_value=17-2031 }</msg>
 <var>&amp;{expected_data}</var>
 <arg>id=${2}</arg>
 <arg>name=fuchsia rose</arg>
@@ -745,666 +106,1146 @@
 <arg>color=#C74375</arg>
 <arg>pantone_value=17-2031</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.003264" elapsed="0.000580"/>
+<status status="PASS" start="2024-04-28T04:48:05.795311" elapsed="0.000703"/>
 </kw>
+<kw name="Get Single Color" owner="reqres">
 <kw name="GET" owner="RequestsLibrary">
-<msg time="2024-04-20T20:52:55.066793" level="INFO">GET Request : url=https://reqres.in/api/colors/2 
+<msg time="2024-04-28T04:48:06.165851" level="INFO">GET Request : url=https://reqres.in/api/colors/2 
  path_url=/api/colors/2 
  headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg time="2024-04-20T20:52:55.066865" level="INFO">GET Response : url=https://reqres.in/api/colors/2 
+<msg time="2024-04-28T04:48:06.165967" level="INFO">GET Response : url=https://reqres.in/api/colors/2 
  status=200, reason=OK 
- headers={'Date': 'Sat, 20 Apr 2024 20:52:55 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1713643006&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=uAzc12q44RxI98M9bVQHGIEUsHQ5lMul74%2FtuFnKmrA%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1713643006&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=uAzc12q44RxI98M9bVQHGIEUsHQ5lMul74%2FtuFnKmrA%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"e8-ov4wWh4/OY1IMQMqWgskYtOFnVs"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '3369', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '877805541fd06fd4-IAD', 'Content-Encoding': 'gzip'} 
+ headers={'Date': 'Sun, 28 Apr 2024 04:48:06 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1714279686&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=RSuutjSJ0I4Wsh%2BaZgDIT1EJJgMXHjhrFWW42Jq5nRg%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1714279686&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=RSuutjSJ0I4Wsh%2BaZgDIT1EJJgMXHjhrFWW42Jq5nRg%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"e8-ov4wWh4/OY1IMQMqWgskYtOFnVs"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'MISS', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '87b46b047cd3944c-SJC', 'Content-Encoding': 'gzip'} 
  body={"data":{"id":2,"name":"fuchsia rose","year":2001,"color":"#C74375","pantone_value":"17-2031"},"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} 
  </msg>
-<msg time="2024-04-20T20:52:55.066971" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2024-04-28T04:48:06.166165" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
-<arg>url=${HOST}/colors/2</arg>
-<arg>expected_status=200</arg>
+<arg>url=${HOST}/${COLORS_PATH}/${id}</arg>
+<arg>expected_status=any</arg>
 <doc>Sends a GET request.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.003930" elapsed="0.063064"/>
+<status status="PASS" start="2024-04-28T04:48:05.796692" elapsed="0.369495"/>
 </kw>
-<kw name="Header Should Be">
+<return>
+<value>${response}</value>
+<status status="PASS" start="2024-04-28T04:48:06.166264" elapsed="0.000042"/>
+</return>
+<msg time="2024-04-28T04:48:06.166427" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>id=${expected_data.id}</arg>
+<status status="PASS" start="2024-04-28T04:48:05.796140" elapsed="0.370304"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2024-04-28T04:48:06.166567" elapsed="0.000180"/>
+</kw>
+<kw name="Header Should Be" owner="base">
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${response.headers}[${header}]</arg>
 <arg>${expected}</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.067523" elapsed="0.000433"/>
+<status status="PASS" start="2024-04-28T04:48:06.167165" elapsed="0.000497"/>
 </kw>
 <arg>${response}</arg>
 <arg>${CONTENT_TYPE}</arg>
 <arg>${APPLICATION_JSON}</arg>
-<status status="PASS" start="2024-04-20T20:52:55.067140" elapsed="0.000868"/>
+<status status="PASS" start="2024-04-28T04:48:06.166873" elapsed="0.000840"/>
 </kw>
-<kw name="Get JSON content">
+<kw name="Get JSON content" owner="base">
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-04-20T20:52:55.068867" level="INFO">&amp;{content} = { data={'id': 2, 'name': 'fuchsia rose', 'year': 2001, 'color': '#C74375', 'pantone_value': '17-2031'} | support={'url': 'https://reqres.in/#support-heading', 'text': 'To keep ReqRes free, contributio...</msg>
-<var>&amp;{content}</var>
+<msg time="2024-04-28T04:48:06.168431" level="INFO">${content} = {'data': {'id': 2, 'name': 'fuchsia rose', 'year': 2001, 'color': '#C74375', 'pantone_value': '17-2031'}, 'support': {'url': 'https://reqres.in/#support-heading', 'text': 'To keep ReqRes free, contrib...</msg>
+<var>${content}</var>
 <arg>${response.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.068309" elapsed="0.000582"/>
+<status status="PASS" start="2024-04-28T04:48:06.168030" elapsed="0.000421"/>
 </kw>
 <return>
-<value>&amp;{content}</value>
-<status status="PASS" start="2024-04-20T20:52:55.068935" elapsed="0.000031"/>
+<value>${content}</value>
+<status status="PASS" start="2024-04-28T04:48:06.168488" elapsed="0.000023"/>
 </return>
-<msg time="2024-04-20T20:52:55.069134" level="INFO">&amp;{content} = { data={'id': 2, 'name': 'fuchsia rose', 'year': 2001, 'color': '#C74375', 'pantone_value': '17-2031'} | support={'url': 'https://reqres.in/#support-heading', 'text': 'To keep ReqRes free, contributio...</msg>
+<msg time="2024-04-28T04:48:06.168656" level="INFO">&amp;{content} = { data={'id': 2, 'name': 'fuchsia rose', 'year': 2001, 'color': '#C74375', 'pantone_value': '17-2031'} | support={'url': 'https://reqres.in/#support-heading', 'text': 'To keep ReqRes free, contributio...</msg>
 <var>&amp;{content}</var>
 <arg>${response}</arg>
-<status status="PASS" start="2024-04-20T20:52:55.068114" elapsed="0.001046"/>
+<status status="PASS" start="2024-04-28T04:48:06.167828" elapsed="0.000848"/>
 </kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data.id}</arg>
-<arg>${expected_data.id}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.069242" elapsed="0.000685"/>
+<kw name="Dictionaries Should Be Equal" owner="Collections">
+<msg time="2024-04-28T04:48:06.169195" level="INFO">False</msg>
+<arg>${content.data}</arg>
+<arg>${expected_data}</arg>
+<doc>Fails if the given dictionaries are not equal.</doc>
+<status status="PASS" start="2024-04-28T04:48:06.168756" elapsed="0.000469"/>
 </kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data.name}</arg>
-<arg>${expected_data.name}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.070012" elapsed="0.000607"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data.year}</arg>
-<arg>${expected_data.year}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.070701" elapsed="0.000594"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data.color}</arg>
-<arg>${expected_data.color}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.071378" elapsed="0.000582"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.data.pantone_value}</arg>
-<arg>${expected_data.pantone_value}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.072042" elapsed="0.000526"/>
-</kw>
-<status status="PASS" start="2024-04-20T20:52:55.002954" elapsed="0.069697"/>
+<status status="PASS" start="2024-04-28T04:48:05.794881" elapsed="0.374437"/>
 </test>
-<test id="s1-s1-s1-t6" name="GET to /colors/id for a color that does not exist should return status 404" line="103">
+<test id="s1-s1-s1-t3" name="GET to /colors/id for a color that does not exist should return status 404" line="37">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-28T04:48:06.170055" level="INFO">${id} = 23</msg>
+<var>${id}</var>
+<arg>23</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-28T04:48:06.169921" elapsed="0.000152"/>
+</kw>
+<kw name="Get Single Color" owner="reqres">
 <kw name="GET" owner="RequestsLibrary">
-<msg time="2024-04-20T20:52:55.342255" level="INFO">GET Request : url=https://reqres.in/api/colors/23 
+<msg time="2024-04-28T04:48:06.546174" level="INFO">GET Request : url=https://reqres.in/api/colors/23 
  path_url=/api/colors/23 
  headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg time="2024-04-20T20:52:55.342335" level="INFO">GET Response : url=https://reqres.in/api/colors/23 
+<msg time="2024-04-28T04:48:06.546264" level="INFO">GET Response : url=https://reqres.in/api/colors/23 
  status=404, reason=Not Found 
- headers={'Date': 'Sat, 20 Apr 2024 20:52:55 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '2', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1713646375&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=ixEHffZNaGuRY5izB8MIjSE9V47dWNnkxaolMTcLhuo%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1713646375&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=ixEHffZNaGuRY5izB8MIjSE9V47dWNnkxaolMTcLhuo%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'MISS', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '877805548f062063-IAD'} 
+ headers={'Date': 'Sun, 28 Apr 2024 04:48:06 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '2', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1714279686&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=RSuutjSJ0I4Wsh%2BaZgDIT1EJJgMXHjhrFWW42Jq5nRg%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1714279686&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=RSuutjSJ0I4Wsh%2BaZgDIT1EJJgMXHjhrFWW42Jq5nRg%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'MISS', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '87b46b06dbe2cec9-SJC'} 
  body={} 
  </msg>
-<msg time="2024-04-20T20:52:55.342445" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<msg time="2024-04-28T04:48:06.546377" level="INFO">${response} = &lt;Response [404]&gt;</msg>
 <var>${response}</var>
-<arg>url=${HOST}/colors/23</arg>
-<arg>expected_status=404</arg>
+<arg>url=${HOST}/${COLORS_PATH}/${id}</arg>
+<arg>expected_status=any</arg>
 <doc>Sends a GET request.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.073130" elapsed="0.269335"/>
+<status status="PASS" start="2024-04-28T04:48:06.170411" elapsed="0.375986"/>
 </kw>
-<kw name="Header Should Be">
+<return>
+<value>${response}</value>
+<status status="PASS" start="2024-04-28T04:48:06.546464" elapsed="0.000042"/>
+</return>
+<msg time="2024-04-28T04:48:06.546622" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<var>${response}</var>
+<arg>id=${id}</arg>
+<status status="PASS" start="2024-04-28T04:48:06.170189" elapsed="0.376451"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>404</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2024-04-28T04:48:06.546762" elapsed="0.000171"/>
+</kw>
+<kw name="Header Should Be" owner="base">
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${response.headers}[${header}]</arg>
 <arg>${expected}</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.342944" elapsed="0.000462"/>
+<status status="PASS" start="2024-04-28T04:48:06.547346" elapsed="0.000481"/>
 </kw>
 <arg>${response}</arg>
 <arg>${CONTENT_TYPE}</arg>
 <arg>${APPLICATION_JSON}</arg>
-<status status="PASS" start="2024-04-20T20:52:55.342631" elapsed="0.000828"/>
+<status status="PASS" start="2024-04-28T04:48:06.547063" elapsed="0.000813"/>
+</kw>
+<kw name="Get JSON content" owner="base">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-28T04:48:06.548611" level="INFO">${content} = {}</msg>
+<var>${content}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-28T04:48:06.548209" elapsed="0.000420"/>
+</kw>
+<return>
+<value>${content}</value>
+<status status="PASS" start="2024-04-28T04:48:06.548668" elapsed="0.000024"/>
+</return>
+<msg time="2024-04-28T04:48:06.548802" level="INFO">&amp;{content} = { }</msg>
+<var>&amp;{content}</var>
+<arg>${response}</arg>
+<status status="PASS" start="2024-04-28T04:48:06.547998" elapsed="0.000821"/>
 </kw>
 <kw name="Should Be Empty" owner="BuiltIn">
-<msg time="2024-04-20T20:52:55.343872" level="INFO">Length is 0.</msg>
-<arg>${response.json()}</arg>
+<msg time="2024-04-28T04:48:06.549032" level="INFO">Length is 0.</msg>
+<arg>${content}</arg>
 <doc>Verifies that the given item is empty.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.343536" elapsed="0.000368"/>
+<status status="PASS" start="2024-04-28T04:48:06.548895" elapsed="0.000171"/>
 </kw>
-<status status="PASS" start="2024-04-20T20:52:55.072804" elapsed="0.271182"/>
+<status status="PASS" start="2024-04-28T04:48:06.169522" elapsed="0.379625"/>
 </test>
-<test id="s1-s1-s1-t7" name="POST to /users with valid data should return status 201 and the user data" line="108">
+<doc>ReqRes API Colors endpoints Test Suite</doc>
+<status status="PASS" start="2024-04-28T04:48:05.661463" elapsed="0.888137"/>
+</suite>
+<suite id="s1-s1-s2" name="Login" source="/home/runner/work/robot-api-tests/robot-api-tests/tests/login.robot">
+<test id="s1-s1-s2-t1" name="POST to /login with valid data should return status 200 and the login token" line="8">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2024-04-20T20:52:55.344663" level="INFO">&amp;{request_data} = { name=morpheus | job=leader }</msg>
-<var>&amp;{request_data}</var>
+<msg time="2024-04-28T04:48:06.553061" level="INFO">&amp;{request_body} = { email=eve.holt@reqres.in | password=pistol }</msg>
+<var>&amp;{request_body}</var>
+<arg>email=eve.holt@reqres.in</arg>
+<arg>password=pistol</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-04-28T04:48:06.552876" elapsed="0.000206"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-04-28T04:48:06.553316" level="INFO">&amp;{expected_response} = { token=QpwL5tke4Pnpja7X4 }</msg>
+<var>&amp;{expected_response}</var>
+<arg>token=QpwL5tke4Pnpja7X4</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-04-28T04:48:06.553175" elapsed="0.000159"/>
+</kw>
+<kw name="Post Login" owner="reqres">
+<kw name="POST" owner="RequestsLibrary">
+<msg time="2024-04-28T04:48:06.914927" level="INFO">POST Request : url=https://reqres.in/api/login 
+ path_url=/api/login 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '53', 'Content-Type': 'application/json'} 
+ body=b'{"email": "eve.holt@reqres.in", "password": "pistol"}' 
+ </msg>
+<msg time="2024-04-28T04:48:06.915007" level="INFO">POST Response : url=https://reqres.in/api/login 
+ status=200, reason=OK 
+ headers={'Date': 'Sun, 28 Apr 2024 04:48:06 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '29', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1714279686&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=RSuutjSJ0I4Wsh%2BaZgDIT1EJJgMXHjhrFWW42Jq5nRg%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1714279686&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=RSuutjSJ0I4Wsh%2BaZgDIT1EJJgMXHjhrFWW42Jq5nRg%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"1d-lGCrvD6B7Qzk11+2C98+nGhhuec"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '87b46b093d1867d9-SJC'} 
+ body={"token":"QpwL5tke4Pnpja7X4"} 
+ </msg>
+<msg time="2024-04-28T04:48:06.916082" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>url=${HOST}/${LOGIN_PATH}</arg>
+<arg>json=&amp;{body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request.</doc>
+<status status="PASS" start="2024-04-28T04:48:06.553666" elapsed="0.362440"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2024-04-28T04:48:06.916178" elapsed="0.000041"/>
+</return>
+<msg time="2024-04-28T04:48:06.916340" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>body=${request_body}</arg>
+<status status="PASS" start="2024-04-28T04:48:06.553447" elapsed="0.362911"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2024-04-28T04:48:06.916479" elapsed="0.000164"/>
+</kw>
+<kw name="Header Should Be" owner="base">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${response.headers}[${header}]</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-04-28T04:48:06.917047" elapsed="0.000479"/>
+</kw>
+<arg>${response}</arg>
+<arg>${CONTENT_TYPE}</arg>
+<arg>${APPLICATION_JSON}</arg>
+<status status="PASS" start="2024-04-28T04:48:06.916769" elapsed="0.000806"/>
+</kw>
+<kw name="Get JSON content" owner="base">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-28T04:48:06.918338" level="INFO">${content} = {'token': 'QpwL5tke4Pnpja7X4'}</msg>
+<var>${content}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-28T04:48:06.917890" elapsed="0.000468"/>
+</kw>
+<return>
+<value>${content}</value>
+<status status="PASS" start="2024-04-28T04:48:06.918394" elapsed="0.000024"/>
+</return>
+<msg time="2024-04-28T04:48:06.918536" level="INFO">&amp;{content} = { token=QpwL5tke4Pnpja7X4 }</msg>
+<var>&amp;{content}</var>
+<arg>${response}</arg>
+<status status="PASS" start="2024-04-28T04:48:06.917688" elapsed="0.000866"/>
+</kw>
+<kw name="Dictionaries Should Be Equal" owner="Collections">
+<msg time="2024-04-28T04:48:06.918772" level="INFO">False</msg>
+<arg>${content}</arg>
+<arg>${expected_response}</arg>
+<doc>Fails if the given dictionaries are not equal.</doc>
+<status status="PASS" start="2024-04-28T04:48:06.918635" elapsed="0.000165"/>
+</kw>
+<status status="PASS" start="2024-04-28T04:48:06.552440" elapsed="0.366442"/>
+</test>
+<test id="s1-s1-s2-t2" name="POST to /login with missing password should return status 400 and the validation error" line="23">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-04-28T04:48:06.919677" level="INFO">&amp;{request_body} = { email=peter@klaven }</msg>
+<var>&amp;{request_body}</var>
+<arg>email=peter@klaven</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-04-28T04:48:06.919502" elapsed="0.000196"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-04-28T04:48:06.919962" level="INFO">&amp;{expected_response} = { error=Missing password }</msg>
+<var>&amp;{expected_response}</var>
+<arg>error=${MISSING_PASSWORD}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-04-28T04:48:06.919783" elapsed="0.000197"/>
+</kw>
+<kw name="Post Login" owner="reqres">
+<kw name="POST" owner="RequestsLibrary">
+<msg time="2024-04-28T04:48:07.305514" level="INFO">POST Request : url=https://reqres.in/api/login 
+ path_url=/api/login 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '25', 'Content-Type': 'application/json'} 
+ body=b'{"email": "peter@klaven"}' 
+ </msg>
+<msg time="2024-04-28T04:48:07.305594" level="INFO">POST Response : url=https://reqres.in/api/login 
+ status=400, reason=Bad Request 
+ headers={'Date': 'Sun, 28 Apr 2024 04:48:07 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '28', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1714279687&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=h%2FUN3RuONo1hl5TFRBqHln1R%2FXsP2PN3%2Fy0xldPPswA%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1714279687&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=h%2FUN3RuONo1hl5TFRBqHln1R%2FXsP2PN3%2Fy0xldPPswA%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"1c-NmpazMScs9tOqR7eDEesn+pqC9Q"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '87b46b0b8ba35c1e-SJC'} 
+ body={"error":"Missing password"} 
+ </msg>
+<msg time="2024-04-28T04:48:07.305706" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<var>${response}</var>
+<arg>url=${HOST}/${LOGIN_PATH}</arg>
+<arg>json=&amp;{body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request.</doc>
+<status status="PASS" start="2024-04-28T04:48:06.920318" elapsed="0.385408"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2024-04-28T04:48:07.305854" elapsed="0.000042"/>
+</return>
+<msg time="2024-04-28T04:48:07.306052" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<var>${response}</var>
+<arg>body=${request_body}</arg>
+<status status="PASS" start="2024-04-28T04:48:06.920099" elapsed="0.385971"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>400</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2024-04-28T04:48:07.306190" elapsed="0.000160"/>
+</kw>
+<kw name="Header Should Be" owner="base">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${response.headers}[${header}]</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-04-28T04:48:07.306758" elapsed="0.000481"/>
+</kw>
+<arg>${response}</arg>
+<arg>${CONTENT_TYPE}</arg>
+<arg>${APPLICATION_JSON}</arg>
+<status status="PASS" start="2024-04-28T04:48:07.306472" elapsed="0.000816"/>
+</kw>
+<kw name="Get JSON content" owner="base">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-28T04:48:07.309192" level="INFO">${content} = {'error': 'Missing password'}</msg>
+<var>${content}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-28T04:48:07.308789" elapsed="0.000423"/>
+</kw>
+<return>
+<value>${content}</value>
+<status status="PASS" start="2024-04-28T04:48:07.309252" elapsed="0.000025"/>
+</return>
+<msg time="2024-04-28T04:48:07.309399" level="INFO">&amp;{content} = { error=Missing password }</msg>
+<var>&amp;{content}</var>
+<arg>${response}</arg>
+<status status="PASS" start="2024-04-28T04:48:07.307399" elapsed="0.002017"/>
+</kw>
+<kw name="Dictionaries Should Be Equal" owner="Collections">
+<msg time="2024-04-28T04:48:07.309633" level="INFO">False</msg>
+<arg>${content}</arg>
+<arg>${expected_response}</arg>
+<doc>Fails if the given dictionaries are not equal.</doc>
+<status status="PASS" start="2024-04-28T04:48:07.309497" elapsed="0.000165"/>
+</kw>
+<status status="PASS" start="2024-04-28T04:48:06.919069" elapsed="0.390672"/>
+</test>
+<doc>ReqRes API Login endpoints Test Suite</doc>
+<status status="PASS" start="2024-04-28T04:48:06.550164" elapsed="0.759902"/>
+</suite>
+<suite id="s1-s1-s3" name="Register" source="/home/runner/work/robot-api-tests/robot-api-tests/tests/register.robot">
+<test id="s1-s1-s3-t1" name="POST to /register with valid data should return status 200 and the registration id and token" line="8">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-04-28T04:48:07.313100" level="INFO">&amp;{request_body} = { email=eve.holt@reqres.in | password=pistol }</msg>
+<var>&amp;{request_body}</var>
+<arg>email=eve.holt@reqres.in</arg>
+<arg>password=pistol</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-04-28T04:48:07.312925" elapsed="0.000196"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-04-28T04:48:07.313589" level="INFO">&amp;{expecxted_response} = { id=4 | token=QpwL5tke4Pnpja7X4 }</msg>
+<var>&amp;{expecxted_response}</var>
+<arg>id=${4}</arg>
+<arg>token=QpwL5tke4Pnpja7X4</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-04-28T04:48:07.313213" elapsed="0.000395"/>
+</kw>
+<kw name="Post Register" owner="reqres">
+<kw name="POST" owner="RequestsLibrary">
+<msg time="2024-04-28T04:48:07.683586" level="INFO">POST Request : url=https://reqres.in/api/register 
+ path_url=/api/register 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '53', 'Content-Type': 'application/json'} 
+ body=b'{"email": "eve.holt@reqres.in", "password": "pistol"}' 
+ </msg>
+<msg time="2024-04-28T04:48:07.683666" level="INFO">POST Response : url=https://reqres.in/api/register 
+ status=200, reason=OK 
+ headers={'Date': 'Sun, 28 Apr 2024 04:48:07 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '36', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1714279687&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=h%2FUN3RuONo1hl5TFRBqHln1R%2FXsP2PN3%2Fy0xldPPswA%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1714279687&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=h%2FUN3RuONo1hl5TFRBqHln1R%2FXsP2PN3%2Fy0xldPPswA%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"24-4iP0za1geN2he+ohu8F0FhCjLks"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '87b46b0dfcdc984e-SJC'} 
+ body={"id":4,"token":"QpwL5tke4Pnpja7X4"} 
+ </msg>
+<msg time="2024-04-28T04:48:07.683775" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>url=${HOST}/${REGISTER_PATH}</arg>
+<arg>json=&amp;{body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request.</doc>
+<status status="PASS" start="2024-04-28T04:48:07.313964" elapsed="0.369831"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2024-04-28T04:48:07.683863" elapsed="0.000042"/>
+</return>
+<msg time="2024-04-28T04:48:07.684031" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>body=${request_body}</arg>
+<status status="PASS" start="2024-04-28T04:48:07.313724" elapsed="0.370325"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2024-04-28T04:48:07.684168" elapsed="0.000162"/>
+</kw>
+<kw name="Header Should Be" owner="base">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${response.headers}[${header}]</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-04-28T04:48:07.684721" elapsed="0.000478"/>
+</kw>
+<arg>${response}</arg>
+<arg>${CONTENT_TYPE}</arg>
+<arg>${APPLICATION_JSON}</arg>
+<status status="PASS" start="2024-04-28T04:48:07.684451" elapsed="0.000797"/>
+</kw>
+<kw name="Get JSON content" owner="base">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-28T04:48:07.686000" level="INFO">${content} = {'id': 4, 'token': 'QpwL5tke4Pnpja7X4'}</msg>
+<var>${content}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-28T04:48:07.685557" elapsed="0.000463"/>
+</kw>
+<return>
+<value>${content}</value>
+<status status="PASS" start="2024-04-28T04:48:07.686063" elapsed="0.000024"/>
+</return>
+<msg time="2024-04-28T04:48:07.686209" level="INFO">&amp;{content} = { id=4 | token=QpwL5tke4Pnpja7X4 }</msg>
+<var>&amp;{content}</var>
+<arg>${response}</arg>
+<status status="PASS" start="2024-04-28T04:48:07.685359" elapsed="0.000867"/>
+</kw>
+<kw name="Dictionaries Should Be Equal" owner="Collections">
+<msg time="2024-04-28T04:48:07.686439" level="INFO">False</msg>
+<arg>${content}</arg>
+<arg>${expecxted_response}</arg>
+<doc>Fails if the given dictionaries are not equal.</doc>
+<status status="PASS" start="2024-04-28T04:48:07.686306" elapsed="0.000160"/>
+</kw>
+<status status="PASS" start="2024-04-28T04:48:07.312581" elapsed="0.373965"/>
+</test>
+<test id="s1-s1-s3-t2" name="POST to /register with missing password should return status 400 and the validation error" line="25">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-04-28T04:48:07.687348" level="INFO">&amp;{request_body} = { email=sydney@fife }</msg>
+<var>&amp;{request_body}</var>
+<arg>email=sydney@fife</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-04-28T04:48:07.687163" elapsed="0.000205"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-04-28T04:48:07.687678" level="INFO">&amp;{expected_response} = { error=Missing password }</msg>
+<var>&amp;{expected_response}</var>
+<arg>error=${MISSING_PASSWORD}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-04-28T04:48:07.687497" elapsed="0.000199"/>
+</kw>
+<kw name="Post Register" owner="reqres">
+<kw name="POST" owner="RequestsLibrary">
+<msg time="2024-04-28T04:48:08.090904" level="INFO">POST Request : url=https://reqres.in/api/register 
+ path_url=/api/register 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '24', 'Content-Type': 'application/json'} 
+ body=b'{"email": "sydney@fife"}' 
+ </msg>
+<msg time="2024-04-28T04:48:08.090994" level="INFO">POST Response : url=https://reqres.in/api/register 
+ status=400, reason=Bad Request 
+ headers={'Date': 'Sun, 28 Apr 2024 04:48:08 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '28', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1714279687&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=h%2FUN3RuONo1hl5TFRBqHln1R%2FXsP2PN3%2Fy0xldPPswA%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1714279687&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=h%2FUN3RuONo1hl5TFRBqHln1R%2FXsP2PN3%2Fy0xldPPswA%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"1c-NmpazMScs9tOqR7eDEesn+pqC9Q"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '87b46b104e22ce88-SJC'} 
+ body={"error":"Missing password"} 
+ </msg>
+<msg time="2024-04-28T04:48:08.092080" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<var>${response}</var>
+<arg>url=${HOST}/${REGISTER_PATH}</arg>
+<arg>json=&amp;{body}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request.</doc>
+<status status="PASS" start="2024-04-28T04:48:07.688015" elapsed="0.404089"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2024-04-28T04:48:08.092183" elapsed="0.000041"/>
+</return>
+<msg time="2024-04-28T04:48:08.092351" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<var>${response}</var>
+<arg>body=${request_body}</arg>
+<status status="PASS" start="2024-04-28T04:48:07.687807" elapsed="0.404563"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>400</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2024-04-28T04:48:08.092489" elapsed="0.000160"/>
+</kw>
+<kw name="Header Should Be" owner="base">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${response.headers}[${header}]</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-04-28T04:48:08.093041" elapsed="0.000496"/>
+</kw>
+<arg>${response}</arg>
+<arg>${CONTENT_TYPE}</arg>
+<arg>${APPLICATION_JSON}</arg>
+<status status="PASS" start="2024-04-28T04:48:08.092772" elapsed="0.000815"/>
+</kw>
+<kw name="Get JSON content" owner="base">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-28T04:48:08.094352" level="INFO">${content} = {'error': 'Missing password'}</msg>
+<var>${content}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-28T04:48:08.093904" elapsed="0.000467"/>
+</kw>
+<return>
+<value>${content}</value>
+<status status="PASS" start="2024-04-28T04:48:08.094408" elapsed="0.000022"/>
+</return>
+<msg time="2024-04-28T04:48:08.094547" level="INFO">&amp;{content} = { error=Missing password }</msg>
+<var>&amp;{content}</var>
+<arg>${response}</arg>
+<status status="PASS" start="2024-04-28T04:48:08.093701" elapsed="0.000863"/>
+</kw>
+<kw name="Dictionaries Should Be Equal" owner="Collections">
+<msg time="2024-04-28T04:48:08.094781" level="INFO">False</msg>
+<arg>${content}</arg>
+<arg>${expected_response}</arg>
+<doc>Fails if the given dictionaries are not equal.</doc>
+<status status="PASS" start="2024-04-28T04:48:08.094644" elapsed="0.000165"/>
+</kw>
+<status status="PASS" start="2024-04-28T04:48:07.686725" elapsed="0.408164"/>
+</test>
+<doc>ReqRes API Register endpoints Test Suite</doc>
+<status status="PASS" start="2024-04-28T04:48:07.310542" elapsed="0.784594"/>
+</suite>
+<suite id="s1-s1-s4" name="Users" source="/home/runner/work/robot-api-tests/robot-api-tests/tests/users.robot">
+<test id="s1-s1-s4-t1" name="GET to /users should return status 200 and a list of users" line="8">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-28T04:48:08.098130" level="INFO">${page} = 2</msg>
+<var>${page}</var>
+<arg>2</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-28T04:48:08.098027" elapsed="0.000122"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-28T04:48:08.098343" level="INFO">${expected_page} = {'page': 2, 'per_page': 6, 'total': 12, 'total_pages': 2}</msg>
+<var>${expected_page}</var>
+<arg>${USERS_PAGE}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-28T04:48:08.098233" elapsed="0.000126"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-28T04:48:08.098561" level="INFO">${expected_data} = [{'id': 7, 'email': 'michael.lawson@reqres.in', 'first_name': 'Michael', 'last_name': 'Lawson', 'avatar': 'https://reqres.in/img/faces/7-image.jpg'}, {'id': 8, 'email': 'lindsay.ferguson@reqres.in', '...</msg>
+<var>${expected_data}</var>
+<arg>${USERS_DATA}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-28T04:48:08.098436" elapsed="0.000143"/>
+</kw>
+<kw name="Get Users" owner="reqres">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-04-28T04:48:08.099093" level="INFO">&amp;{params} = { page=2 }</msg>
+<var>&amp;{params}</var>
+<arg>page=${page}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-04-28T04:48:08.098912" elapsed="0.000199"/>
+</kw>
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2024-04-28T04:48:08.145117" level="INFO">GET Request : url=https://reqres.in/api/users?page=2 
+ path_url=/api/users?page=2 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-04-28T04:48:08.145188" level="INFO">GET Response : url=https://reqres.in/api/users?page=2 
+ status=200, reason=OK 
+ headers={'Date': 'Sun, 28 Apr 2024 04:48:08 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1710182132&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=nNUCOObxgfxrTehojSUFTOkoN9orbgo2jTYrPxot%2FjM%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1710182132&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=nNUCOObxgfxrTehojSUFTOkoN9orbgo2jTYrPxot%2FjM%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"406-ut0vzoCuidvyMf8arZpMpJ6ZRDw"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '4724', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '87b46b12d8149834-SJC', 'Content-Encoding': 'gzip'} 
+ body={"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} 
+ </msg>
+<msg time="2024-04-28T04:48:08.145329" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>url=${HOST}/${USERS_PATH}</arg>
+<arg>params=&amp;{params}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2024-04-28T04:48:08.099192" elapsed="0.046156"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2024-04-28T04:48:08.145395" elapsed="0.000029"/>
+</return>
+<msg time="2024-04-28T04:48:08.145524" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>page=${page}</arg>
+<status status="PASS" start="2024-04-28T04:48:08.098691" elapsed="0.046850"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2024-04-28T04:48:08.145633" elapsed="0.000145"/>
+</kw>
+<kw name="Header Should Be" owner="base">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${response.headers}[${header}]</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-04-28T04:48:08.146167" elapsed="0.000459"/>
+</kw>
+<arg>${response}</arg>
+<arg>${CONTENT_TYPE}</arg>
+<arg>${APPLICATION_JSON}</arg>
+<status status="PASS" start="2024-04-28T04:48:08.145886" elapsed="0.000789"/>
+</kw>
+<kw name="Get JSON content" owner="base">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-28T04:48:08.147589" level="INFO">${content} = {'page': 2, 'per_page': 6, 'total': 12, 'total_pages': 2, 'data': [{'id': 7, 'email': 'michael.lawson@reqres.in', 'first_name': 'Michael', 'last_name': 'Lawson', 'avatar': 'https://reqres.in/img/faces...</msg>
+<var>${content}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-28T04:48:08.147166" elapsed="0.000444"/>
+</kw>
+<return>
+<value>${content}</value>
+<status status="PASS" start="2024-04-28T04:48:08.147649" elapsed="0.000023"/>
+</return>
+<msg time="2024-04-28T04:48:08.147879" level="INFO">&amp;{content} = { page=2 | per_page=6 | total=12 | total_pages=2 | data=[{'id': 7, 'email': 'michael.lawson@reqres.in', 'first_name': 'Michael', 'last_name': 'Lawson', 'avatar': 'https://reqres.in/img/faces/7-image.j...</msg>
+<var>&amp;{content}</var>
+<arg>${response}</arg>
+<status status="PASS" start="2024-04-28T04:48:08.146786" elapsed="0.001115"/>
+</kw>
+<kw name="Dictionary Should Contain Sub Dictionary" owner="Collections">
+<msg time="2024-04-28T04:48:08.148118" level="INFO">False</msg>
+<arg>${content}</arg>
+<arg>${expected_page}</arg>
+<doc>Fails unless all items in ``dict2`` are found from ``dict1``.</doc>
+<status status="PASS" start="2024-04-28T04:48:08.147984" elapsed="0.000163"/>
+</kw>
+<kw name="Lists Should Be Equal" owner="Collections">
+<msg time="2024-04-28T04:48:08.148677" level="INFO">False</msg>
+<arg>${content.data}</arg>
+<arg>${expected_data}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="PASS" start="2024-04-28T04:48:08.148230" elapsed="0.000477"/>
+</kw>
+<status status="PASS" start="2024-04-28T04:48:08.097627" elapsed="0.051159"/>
+</test>
+<test id="s1-s1-s4-t2" name="GET to /users/id for an existing user should return status 200 and the user data" line="22">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-04-28T04:48:08.149793" level="INFO">&amp;{expected_data} = { id=2 | email=janet.weaver@reqres.in | first_name=Janet | last_name=Weaver | avatar=https://reqres.in/img/faces/2-image.jpg }</msg>
+<var>&amp;{expected_data}</var>
+<arg>id=${2}</arg>
+<arg>email=janet.weaver@reqres.in</arg>
+<arg>first_name=Janet</arg>
+<arg>last_name=Weaver</arg>
+<arg>avatar=https://reqres.in/img/faces/2-image.jpg</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-04-28T04:48:08.149377" elapsed="0.000444"/>
+</kw>
+<kw name="Get Single User" owner="reqres">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2024-04-28T04:48:08.199819" level="INFO">GET Request : url=https://reqres.in/api/users/2 
+ path_url=/api/users/2 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-04-28T04:48:08.199891" level="INFO">GET Response : url=https://reqres.in/api/users/2 
+ status=200, reason=OK 
+ headers={'Date': 'Sun, 28 Apr 2024 04:48:08 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1712723341&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=NfeoGmvhzLRIXZLCMhJH0RKkX%2B%2FKH%2B3ml%2F2Ej8iGHyc%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1712723341&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=NfeoGmvhzLRIXZLCMhJH0RKkX%2B%2FKH%2B3ml%2F2Ej8iGHyc%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"118-pbdwwFo9SKNhD3Lx5iHJyngpq00"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '2014', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '87b46b133cdc24ee-SJC', 'Content-Encoding': 'gzip'} 
+ body={"data":{"id":2,"email":"janet.weaver@reqres.in","first_name":"Janet","last_name":"Weaver","avatar":"https://reqres.in/img/faces/2-image.jpg"},"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} 
+ </msg>
+<msg time="2024-04-28T04:48:08.199994" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>url=${HOST}/${USERS_PATH}/${id}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2024-04-28T04:48:08.150504" elapsed="0.049513"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2024-04-28T04:48:08.200126" elapsed="0.000034"/>
+</return>
+<msg time="2024-04-28T04:48:08.200291" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>id=${expected_data.id}</arg>
+<status status="PASS" start="2024-04-28T04:48:08.149971" elapsed="0.050342"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2024-04-28T04:48:08.200418" elapsed="0.000138"/>
+</kw>
+<kw name="Header Should Be" owner="base">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${response.headers}[${header}]</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-04-28T04:48:08.200926" elapsed="0.000457"/>
+</kw>
+<arg>${response}</arg>
+<arg>${CONTENT_TYPE}</arg>
+<arg>${APPLICATION_JSON}</arg>
+<status status="PASS" start="2024-04-28T04:48:08.200664" elapsed="0.000769"/>
+</kw>
+<kw name="Get JSON content" owner="base">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-28T04:48:08.202181" level="INFO">${content} = {'data': {'id': 2, 'email': 'janet.weaver@reqres.in', 'first_name': 'Janet', 'last_name': 'Weaver', 'avatar': 'https://reqres.in/img/faces/2-image.jpg'}, 'support': {'url': 'https://reqres.in/#support...</msg>
+<var>${content}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-28T04:48:08.201746" elapsed="0.000456"/>
+</kw>
+<return>
+<value>${content}</value>
+<status status="PASS" start="2024-04-28T04:48:08.202240" elapsed="0.000022"/>
+</return>
+<msg time="2024-04-28T04:48:08.202413" level="INFO">&amp;{content} = { data={'id': 2, 'email': 'janet.weaver@reqres.in', 'first_name': 'Janet', 'last_name': 'Weaver', 'avatar': 'https://reqres.in/img/faces/2-image.jpg'} | support={'url': 'https://reqres.in/#support-hea...</msg>
+<var>&amp;{content}</var>
+<arg>${response}</arg>
+<status status="PASS" start="2024-04-28T04:48:08.201544" elapsed="0.000889"/>
+</kw>
+<kw name="Dictionaries Should Be Equal" owner="Collections">
+<msg time="2024-04-28T04:48:08.202948" level="INFO">False</msg>
+<arg>${content.data}</arg>
+<arg>${expected_data}</arg>
+<doc>Fails if the given dictionaries are not equal.</doc>
+<status status="PASS" start="2024-04-28T04:48:08.202516" elapsed="0.000462"/>
+</kw>
+<status status="PASS" start="2024-04-28T04:48:08.148956" elapsed="0.054101"/>
+</test>
+<test id="s1-s1-s4-t3" name="GET to /users/id for a user that does not exist should return status 404" line="38">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-28T04:48:08.203716" level="INFO">${id} = 23</msg>
+<var>${id}</var>
+<arg>23</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-28T04:48:08.203613" elapsed="0.000122"/>
+</kw>
+<kw name="Get Single User" owner="reqres">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2024-04-28T04:48:08.553779" level="INFO">GET Request : url=https://reqres.in/api/users/23 
+ path_url=/api/users/23 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-04-28T04:48:08.553861" level="INFO">GET Response : url=https://reqres.in/api/users/23 
+ status=404, reason=Not Found 
+ headers={'Date': 'Sun, 28 Apr 2024 04:48:08 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '2', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1714279688&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=Mg4Mt%2FiA2yWQCwm7bFp4DfzZ6H1DE3nY%2BXeVrb9odvc%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1714279688&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=Mg4Mt%2FiA2yWQCwm7bFp4DfzZ6H1DE3nY%2BXeVrb9odvc%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'EXPIRED', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '87b46b13881c67d0-SJC'} 
+ body={} 
+ </msg>
+<msg time="2024-04-28T04:48:08.554956" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<var>${response}</var>
+<arg>url=${HOST}/${USERS_PATH}/${id}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2024-04-28T04:48:08.204069" elapsed="0.350911"/>
+</kw>
+<return>
+<value>${response}</value>
+<status status="PASS" start="2024-04-28T04:48:08.555045" elapsed="0.000040"/>
+</return>
+<msg time="2024-04-28T04:48:08.555201" level="INFO">${response} = &lt;Response [404]&gt;</msg>
+<var>${response}</var>
+<arg>id=${id}</arg>
+<status status="PASS" start="2024-04-28T04:48:08.203847" elapsed="0.351372"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>404</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2024-04-28T04:48:08.555335" elapsed="0.000160"/>
+</kw>
+<kw name="Header Should Be" owner="base">
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${response.headers}[${header}]</arg>
+<arg>${expected}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-04-28T04:48:08.555884" elapsed="0.000473"/>
+</kw>
+<arg>${response}</arg>
+<arg>${CONTENT_TYPE}</arg>
+<arg>${APPLICATION_JSON}</arg>
+<status status="PASS" start="2024-04-28T04:48:08.555615" elapsed="0.000792"/>
+</kw>
+<kw name="Get JSON content" owner="base">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-28T04:48:08.557103" level="INFO">${content} = {}</msg>
+<var>${content}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-28T04:48:08.556715" elapsed="0.000406"/>
+</kw>
+<return>
+<value>${content}</value>
+<status status="PASS" start="2024-04-28T04:48:08.557167" elapsed="0.000022"/>
+</return>
+<msg time="2024-04-28T04:48:08.557300" level="INFO">&amp;{content} = { }</msg>
+<var>&amp;{content}</var>
+<arg>${response}</arg>
+<status status="PASS" start="2024-04-28T04:48:08.556518" elapsed="0.000799"/>
+</kw>
+<kw name="Should Be Empty" owner="BuiltIn">
+<msg time="2024-04-28T04:48:08.557482" level="INFO">Length is 0.</msg>
+<arg>${content}</arg>
+<doc>Verifies that the given item is empty.</doc>
+<status status="PASS" start="2024-04-28T04:48:08.557395" elapsed="0.000117"/>
+</kw>
+<status status="PASS" start="2024-04-28T04:48:08.203226" elapsed="0.354365"/>
+</test>
+<test id="s1-s1-s4-t4" name="POST to /users with valid data should return status 201 and the user data" line="49">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-04-28T04:48:08.558314" level="INFO">&amp;{request_body} = { name=morpheus | job=leader }</msg>
+<var>&amp;{request_body}</var>
 <arg>name=morpheus</arg>
 <arg>job=leader</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.344470" elapsed="0.000214"/>
+<status status="PASS" start="2024-04-28T04:48:08.558131" elapsed="0.000203"/>
 </kw>
+<kw name="Post User" owner="reqres">
 <kw name="POST" owner="RequestsLibrary">
-<msg time="2024-04-20T20:52:55.599592" level="INFO">POST Request : url=https://reqres.in/api/users 
+<msg time="2024-04-28T04:48:08.913011" level="INFO">POST Request : url=https://reqres.in/api/users 
  path_url=/api/users 
  headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '37', 'Content-Type': 'application/json'} 
  body=b'{"name": "morpheus", "job": "leader"}' 
  </msg>
-<msg time="2024-04-20T20:52:55.599660" level="INFO">POST Response : url=https://reqres.in/api/users 
+<msg time="2024-04-28T04:48:08.913090" level="INFO">POST Response : url=https://reqres.in/api/users 
  status=201, reason=Created 
- headers={'Date': 'Sat, 20 Apr 2024 20:52:55 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '84', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1713646375&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=ixEHffZNaGuRY5izB8MIjSE9V47dWNnkxaolMTcLhuo%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1713646375&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=ixEHffZNaGuRY5izB8MIjSE9V47dWNnkxaolMTcLhuo%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"54-M4r9u2ou+nqFr2uYaSSQSGgwvRA"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '877805563f4f9c88-IAD'} 
- body={"name":"morpheus","job":"leader","id":"957","createdAt":"2024-04-20T20:52:55.548Z"} 
+ headers={'Date': 'Sun, 28 Apr 2024 04:48:08 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '84', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1714279688&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=Mg4Mt%2FiA2yWQCwm7bFp4DfzZ6H1DE3nY%2BXeVrb9odvc%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1714279688&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=Mg4Mt%2FiA2yWQCwm7bFp4DfzZ6H1DE3nY%2BXeVrb9odvc%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"54-VYfBDSfhSo7PodN/PcGJ+24p32o"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '87b46b15bf1c7ada-SJC'} 
+ body={"name":"morpheus","job":"leader","id":"305","createdAt":"2024-04-28T04:48:08.833Z"} 
  </msg>
-<msg time="2024-04-20T20:52:55.599762" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<msg time="2024-04-28T04:48:08.913257" level="INFO">${response} = &lt;Response [201]&gt;</msg>
 <var>${response}</var>
-<arg>url=${HOST}/users</arg>
-<arg>json=&amp;{request_data}</arg>
-<arg>expected_status=201</arg>
+<arg>url=${HOST}/${USERS_PATH}</arg>
+<arg>json=&amp;{body}</arg>
+<arg>expected_status=any</arg>
 <doc>Sends a POST request.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.344762" elapsed="0.255019"/>
+<status status="PASS" start="2024-04-28T04:48:08.558663" elapsed="0.354615"/>
 </kw>
-<kw name="Header Should Be">
+<return>
+<value>${response}</value>
+<status status="PASS" start="2024-04-28T04:48:08.913348" elapsed="0.000041"/>
+</return>
+<msg time="2024-04-28T04:48:08.913506" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>body=${request_body}</arg>
+<status status="PASS" start="2024-04-28T04:48:08.558447" elapsed="0.355077"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>201</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2024-04-28T04:48:08.913643" elapsed="0.000165"/>
+</kw>
+<kw name="Header Should Be" owner="base">
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${response.headers}[${header}]</arg>
 <arg>${expected}</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.600240" elapsed="0.000442"/>
+<status status="PASS" start="2024-04-28T04:48:08.914246" elapsed="0.000480"/>
 </kw>
 <arg>${response}</arg>
 <arg>${CONTENT_TYPE}</arg>
 <arg>${APPLICATION_JSON}</arg>
-<status status="PASS" start="2024-04-20T20:52:55.599932" elapsed="0.000802"/>
+<status status="PASS" start="2024-04-28T04:48:08.913927" elapsed="0.000849"/>
 </kw>
-<kw name="Get JSON content">
+<kw name="Get JSON content" owner="base">
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-04-20T20:52:55.601540" level="INFO">&amp;{content} = { name=morpheus | job=leader | id=957 | createdAt=2024-04-20T20:52:55.548Z }</msg>
-<var>&amp;{content}</var>
+<msg time="2024-04-28T04:48:08.915475" level="INFO">${content} = {'name': 'morpheus', 'job': 'leader', 'id': '305', 'createdAt': '2024-04-28T04:48:08.833Z'}</msg>
+<var>${content}</var>
 <arg>${response.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.601096" elapsed="0.000465"/>
+<status status="PASS" start="2024-04-28T04:48:08.915088" elapsed="0.000406"/>
 </kw>
 <return>
-<value>&amp;{content}</value>
-<status status="PASS" start="2024-04-20T20:52:55.601604" elapsed="0.000034"/>
+<value>${content}</value>
+<status status="PASS" start="2024-04-28T04:48:08.915531" elapsed="0.000022"/>
 </return>
-<msg time="2024-04-20T20:52:55.601774" level="INFO">&amp;{content} = { name=morpheus | job=leader | id=957 | createdAt=2024-04-20T20:52:55.548Z }</msg>
+<msg time="2024-04-28T04:48:08.915676" level="INFO">&amp;{content} = { name=morpheus | job=leader | id=305 | createdAt=2024-04-28T04:48:08.833Z }</msg>
 <var>&amp;{content}</var>
 <arg>${response}</arg>
-<status status="PASS" start="2024-04-20T20:52:55.600891" elapsed="0.000900"/>
+<status status="PASS" start="2024-04-28T04:48:08.914887" elapsed="0.000807"/>
 </kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.name}</arg>
-<arg>${request_data.name}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.601869" elapsed="0.000614"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.job}</arg>
-<arg>${request_data.job}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.602568" elapsed="0.000602"/>
+<kw name="Dictionary Should Contain Sub Dictionary" owner="Collections">
+<msg time="2024-04-28T04:48:08.915909" level="INFO">False</msg>
+<arg>${content}</arg>
+<arg>${request_body}</arg>
+<doc>Fails unless all items in ``dict2`` are found from ``dict1``.</doc>
+<status status="PASS" start="2024-04-28T04:48:08.915777" elapsed="0.000161"/>
 </kw>
 <kw name="Should Match Regexp" owner="BuiltIn">
 <arg>${content.id}</arg>
-<arg>${one_to_three_digits}</arg>
+<arg>${ONE_TO_THREE_DIGITS}</arg>
 <doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.603253" elapsed="0.001602"/>
+<status status="PASS" start="2024-04-28T04:48:08.916019" elapsed="0.000528"/>
 </kw>
 <kw name="Should Match Regexp" owner="BuiltIn">
 <arg>${content.createdAt}</arg>
 <arg>${DATE_IN_ISO_FORMAT}</arg>
 <doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.604944" elapsed="0.000534"/>
+<status status="PASS" start="2024-04-28T04:48:08.916637" elapsed="0.000496"/>
 </kw>
-<status status="PASS" start="2024-04-20T20:52:55.344149" elapsed="0.261418"/>
+<status status="PASS" start="2024-04-28T04:48:08.557757" elapsed="0.359463"/>
 </test>
-<test id="s1-s1-s1-t8" name="PUT to /users/id for an existing user with valid data should return status 200 and the user data" line="122">
+<test id="s1-s1-s4-t5" name="PUT to /users/id for an existing user with valid data should return status 200 and the user data" line="64">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-28T04:48:08.917819" level="INFO">${id} = 2</msg>
+<var>${id}</var>
+<arg>2</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-28T04:48:08.917728" elapsed="0.000109"/>
+</kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2024-04-20T20:52:55.606251" level="INFO">&amp;{request_data} = { name=morpheus | job=zion resident }</msg>
-<var>&amp;{request_data}</var>
+<msg time="2024-04-28T04:48:08.918134" level="INFO">&amp;{request_body} = { name=morpheus | job=zion resident }</msg>
+<var>&amp;{request_body}</var>
 <arg>name=morpheus</arg>
 <arg>job=zion resident</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.606070" elapsed="0.000201"/>
+<status status="PASS" start="2024-04-28T04:48:08.917949" elapsed="0.000204"/>
 </kw>
+<kw name="Put User" owner="reqres">
 <kw name="PUT" owner="RequestsLibrary">
-<msg time="2024-04-20T20:52:55.852978" level="INFO">PUT Request : url=https://reqres.in/api/users/2 
+<msg time="2024-04-28T04:48:09.295637" level="INFO">PUT Request : url=https://reqres.in/api/users/2 
  path_url=/api/users/2 
  headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '44', 'Content-Type': 'application/json'} 
  body=b'{"name": "morpheus", "job": "zion resident"}' 
  </msg>
-<msg time="2024-04-20T20:52:55.853041" level="INFO">PUT Response : url=https://reqres.in/api/users/2 
+<msg time="2024-04-28T04:48:09.295717" level="INFO">PUT Response : url=https://reqres.in/api/users/2 
  status=200, reason=OK 
- headers={'Date': 'Sat, 20 Apr 2024 20:52:55 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1713646375&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=ixEHffZNaGuRY5izB8MIjSE9V47dWNnkxaolMTcLhuo%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1713646375&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=ixEHffZNaGuRY5izB8MIjSE9V47dWNnkxaolMTcLhuo%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"50-HkcT4J5IY/6ZF0F6193W47Br2WU"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '87780557db7907c8-IAD', 'Content-Encoding': 'gzip'} 
- body={"name":"morpheus","job":"zion resident","updatedAt":"2024-04-20T20:52:55.805Z"} 
+ headers={'Date': 'Sun, 28 Apr 2024 04:48:09 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1714279689&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=bOZBYcWEf8edgb6doZnLz0X%2FAURs17tsSx6Y%2BNRTfU0%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1714279689&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=bOZBYcWEf8edgb6doZnLz0X%2FAURs17tsSx6Y%2BNRTfU0%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"50-BisAoF+79hRjWLgmGL3Z/T1T3EE"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '87b46b17fbdc1574-SJC', 'Content-Encoding': 'gzip'} 
+ body={"name":"morpheus","job":"zion resident","updatedAt":"2024-04-28T04:48:09.205Z"} 
  </msg>
-<msg time="2024-04-20T20:52:55.853169" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2024-04-28T04:48:09.296811" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
-<arg>url=${HOST}/users/2</arg>
-<arg>json=&amp;{request_data}</arg>
-<arg>expected_status=200</arg>
+<arg>url=${HOST}/${USERS_PATH}/${id}</arg>
+<arg>json=&amp;{body}</arg>
+<arg>expected_status=any</arg>
 <doc>Sends a PUT request.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.606350" elapsed="0.246842"/>
+<status status="PASS" start="2024-04-28T04:48:08.918524" elapsed="0.378311"/>
 </kw>
-<kw name="Header Should Be">
+<return>
+<value>${response}</value>
+<status status="PASS" start="2024-04-28T04:48:09.296912" elapsed="0.000042"/>
+</return>
+<msg time="2024-04-28T04:48:09.297073" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>id=${id}</arg>
+<arg>body=${request_body}</arg>
+<status status="PASS" start="2024-04-28T04:48:08.918265" elapsed="0.378826"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2024-04-28T04:48:09.297213" elapsed="0.000161"/>
+</kw>
+<kw name="Header Should Be" owner="base">
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${response.headers}[${header}]</arg>
 <arg>${expected}</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.853599" elapsed="0.000427"/>
+<status status="PASS" start="2024-04-28T04:48:09.297764" elapsed="0.000537"/>
 </kw>
 <arg>${response}</arg>
 <arg>${CONTENT_TYPE}</arg>
 <arg>${APPLICATION_JSON}</arg>
-<status status="PASS" start="2024-04-20T20:52:55.853322" elapsed="0.000754"/>
+<status status="PASS" start="2024-04-28T04:48:09.297497" elapsed="0.000854"/>
 </kw>
-<kw name="Get JSON content">
+<kw name="Get JSON content" owner="base">
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-04-20T20:52:55.854761" level="INFO">&amp;{content} = { name=morpheus | job=zion resident | updatedAt=2024-04-20T20:52:55.805Z }</msg>
-<var>&amp;{content}</var>
+<msg time="2024-04-28T04:48:09.299130" level="INFO">${content} = {'name': 'morpheus', 'job': 'zion resident', 'updatedAt': '2024-04-28T04:48:09.205Z'}</msg>
+<var>${content}</var>
 <arg>${response.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.854374" elapsed="0.000407"/>
+<status status="PASS" start="2024-04-28T04:48:09.298736" elapsed="0.000413"/>
 </kw>
 <return>
-<value>&amp;{content}</value>
-<status status="PASS" start="2024-04-20T20:52:55.854820" elapsed="0.000030"/>
+<value>${content}</value>
+<status status="PASS" start="2024-04-28T04:48:09.299187" elapsed="0.000022"/>
 </return>
-<msg time="2024-04-20T20:52:55.854981" level="INFO">&amp;{content} = { name=morpheus | job=zion resident | updatedAt=2024-04-20T20:52:55.805Z }</msg>
+<msg time="2024-04-28T04:48:09.299328" level="INFO">&amp;{content} = { name=morpheus | job=zion resident | updatedAt=2024-04-28T04:48:09.205Z }</msg>
 <var>&amp;{content}</var>
 <arg>${response}</arg>
-<status status="PASS" start="2024-04-20T20:52:55.854180" elapsed="0.000819"/>
+<status status="PASS" start="2024-04-28T04:48:09.298524" elapsed="0.000822"/>
 </kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.name}</arg>
-<arg>${request_data.name}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.855077" elapsed="0.000598"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.job}</arg>
-<arg>${request_data.job}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.855759" elapsed="0.000597"/>
+<kw name="Dictionary Should Contain Sub Dictionary" owner="Collections">
+<msg time="2024-04-28T04:48:09.299558" level="INFO">False</msg>
+<arg>${content}</arg>
+<arg>${request_body}</arg>
+<doc>Fails unless all items in ``dict2`` are found from ``dict1``.</doc>
+<status status="PASS" start="2024-04-28T04:48:09.299428" elapsed="0.000158"/>
 </kw>
 <kw name="Should Match Regexp" owner="BuiltIn">
 <arg>${content.updatedAt}</arg>
 <arg>${DATE_IN_ISO_FORMAT}</arg>
 <doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.856438" elapsed="0.000346"/>
+<status status="PASS" start="2024-04-28T04:48:09.299666" elapsed="0.000393"/>
 </kw>
-<status status="PASS" start="2024-04-20T20:52:55.605727" elapsed="0.251140"/>
+<status status="PASS" start="2024-04-28T04:48:08.917399" elapsed="0.382744"/>
 </test>
-<test id="s1-s1-s1-t9" name="PATCH to /users/id for an existing user with valid data should return status 200 and the user data" line="135">
+<test id="s1-s1-s4-t6" name="PATCH to /users/id for an existing user with valid data should return status 200 and the user data" line="79">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-28T04:48:09.300754" level="INFO">${id} = 2</msg>
+<var>${id}</var>
+<arg>2</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-28T04:48:09.300651" elapsed="0.000121"/>
+</kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2024-04-20T20:52:55.857669" level="INFO">&amp;{request_data} = { name=morpheus | job=zion resident }</msg>
-<var>&amp;{request_data}</var>
+<msg time="2024-04-28T04:48:09.301025" level="INFO">&amp;{request_body} = { name=morpheus | job=zion resident }</msg>
+<var>&amp;{request_body}</var>
 <arg>name=morpheus</arg>
 <arg>job=zion resident</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.857499" elapsed="0.000191"/>
+<status status="PASS" start="2024-04-28T04:48:09.300864" elapsed="0.000179"/>
 </kw>
+<kw name="Patch User" owner="reqres">
 <kw name="PATCH" owner="RequestsLibrary">
-<msg time="2024-04-20T20:52:56.112840" level="INFO">PATCH Request : url=https://reqres.in/api/users/2 
+<msg time="2024-04-28T04:48:09.678979" level="INFO">PATCH Request : url=https://reqres.in/api/users/2 
  path_url=/api/users/2 
  headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '44', 'Content-Type': 'application/json'} 
  body=b'{"name": "morpheus", "job": "zion resident"}' 
  </msg>
-<msg time="2024-04-20T20:52:56.112922" level="INFO">PATCH Response : url=https://reqres.in/api/users/2 
+<msg time="2024-04-28T04:48:09.679070" level="INFO">PATCH Response : url=https://reqres.in/api/users/2 
  status=200, reason=OK 
- headers={'Date': 'Sat, 20 Apr 2024 20:52:56 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1713646376&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=cU5LLCKYBLU1DrIXjN6WlUW9vUjWRZjyqQcnNWKr3Lk%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1713646376&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=cU5LLCKYBLU1DrIXjN6WlUW9vUjWRZjyqQcnNWKr3Lk%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"50-jlo2hJSzQhFond480rbQZRHk+q0"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '877805596e8f28c8-IAD', 'Content-Encoding': 'gzip'} 
- body={"name":"morpheus","job":"zion resident","updatedAt":"2024-04-20T20:52:56.061Z"} 
+ headers={'Date': 'Sun, 28 Apr 2024 04:48:09 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1714279689&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=bOZBYcWEf8edgb6doZnLz0X%2FAURs17tsSx6Y%2BNRTfU0%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1714279689&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=bOZBYcWEf8edgb6doZnLz0X%2FAURs17tsSx6Y%2BNRTfU0%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"50-RCHIJNOwVEiLY9GMOA7SvmDrYro"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '87b46b1a6b4215e1-SJC', 'Content-Encoding': 'gzip'} 
+ body={"name":"morpheus","job":"zion resident","updatedAt":"2024-04-28T04:48:09.596Z"} 
  </msg>
-<msg time="2024-04-20T20:52:56.113130" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2024-04-28T04:48:09.679189" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
-<arg>url=${HOST}/users/2</arg>
-<arg>json=&amp;{request_data}</arg>
-<arg>expected_status=200</arg>
+<arg>url=${HOST}/${USERS_PATH}/${id}</arg>
+<arg>json=&amp;{body}</arg>
+<arg>expected_status=any</arg>
 <doc>Sends a PUT request.</doc>
-<status status="PASS" start="2024-04-20T20:52:55.857770" elapsed="0.255388"/>
+<status status="PASS" start="2024-04-28T04:48:09.301407" elapsed="0.377802"/>
 </kw>
-<kw name="Header Should Be">
+<return>
+<value>${response}</value>
+<status status="PASS" start="2024-04-28T04:48:09.679281" elapsed="0.000040"/>
+</return>
+<msg time="2024-04-28T04:48:09.679439" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>id=${id}</arg>
+<arg>body=${request_body}</arg>
+<status status="PASS" start="2024-04-28T04:48:09.301154" elapsed="0.378304"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2024-04-28T04:48:09.679582" elapsed="0.000161"/>
+</kw>
+<kw name="Header Should Be" owner="base">
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${response.headers}[${header}]</arg>
 <arg>${expected}</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:56.113646" elapsed="0.000467"/>
+<status status="PASS" start="2024-04-28T04:48:09.680132" elapsed="0.000482"/>
 </kw>
 <arg>${response}</arg>
 <arg>${CONTENT_TYPE}</arg>
 <arg>${APPLICATION_JSON}</arg>
-<status status="PASS" start="2024-04-20T20:52:56.113333" elapsed="0.000833"/>
+<status status="PASS" start="2024-04-28T04:48:09.679863" elapsed="0.000800"/>
 </kw>
-<kw name="Get JSON content">
+<kw name="Get JSON content" owner="base">
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-04-20T20:52:56.114864" level="INFO">&amp;{content} = { name=morpheus | job=zion resident | updatedAt=2024-04-20T20:52:56.061Z }</msg>
-<var>&amp;{content}</var>
+<msg time="2024-04-28T04:48:09.681379" level="INFO">${content} = {'name': 'morpheus', 'job': 'zion resident', 'updatedAt': '2024-04-28T04:48:09.596Z'}</msg>
+<var>${content}</var>
 <arg>${response.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-04-20T20:52:56.114471" elapsed="0.000413"/>
+<status status="PASS" start="2024-04-28T04:48:09.680980" elapsed="0.000418"/>
 </kw>
 <return>
-<value>&amp;{content}</value>
-<status status="PASS" start="2024-04-20T20:52:56.114925" elapsed="0.000034"/>
+<value>${content}</value>
+<status status="PASS" start="2024-04-28T04:48:09.681435" elapsed="0.000022"/>
 </return>
-<msg time="2024-04-20T20:52:56.115092" level="INFO">&amp;{content} = { name=morpheus | job=zion resident | updatedAt=2024-04-20T20:52:56.061Z }</msg>
+<msg time="2024-04-28T04:48:09.681578" level="INFO">&amp;{content} = { name=morpheus | job=zion resident | updatedAt=2024-04-28T04:48:09.596Z }</msg>
 <var>&amp;{content}</var>
 <arg>${response}</arg>
-<status status="PASS" start="2024-04-20T20:52:56.114276" elapsed="0.000834"/>
+<status status="PASS" start="2024-04-28T04:48:09.680776" elapsed="0.000820"/>
 </kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.name}</arg>
-<arg>${request_data.name}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:56.115187" elapsed="0.000605"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.job}</arg>
-<arg>${request_data.job}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:56.115881" elapsed="0.000598"/>
+<kw name="Dictionary Should Contain Sub Dictionary" owner="Collections">
+<msg time="2024-04-28T04:48:09.681815" level="INFO">False</msg>
+<arg>${content}</arg>
+<arg>${request_body}</arg>
+<doc>Fails unless all items in ``dict2`` are found from ``dict1``.</doc>
+<status status="PASS" start="2024-04-28T04:48:09.681677" elapsed="0.000168"/>
 </kw>
 <kw name="Should Match Regexp" owner="BuiltIn">
 <arg>${content.updatedAt}</arg>
 <arg>${DATE_IN_ISO_FORMAT}</arg>
 <doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
-<status status="PASS" start="2024-04-20T20:52:56.116567" elapsed="0.000350"/>
+<status status="PASS" start="2024-04-28T04:48:09.681926" elapsed="0.000432"/>
 </kw>
-<status status="PASS" start="2024-04-20T20:52:55.857043" elapsed="0.259960"/>
+<status status="PASS" start="2024-04-28T04:48:09.300305" elapsed="0.382138"/>
 </test>
-<test id="s1-s1-s1-t10" name="DELETE to /users/id for an existing user should return status 204" line="148">
+<test id="s1-s1-s4-t7" name="DELETE to /users/id for an existing user should return status 204" line="94">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-04-28T04:48:09.683013" level="INFO">${id} = 2</msg>
+<var>${id}</var>
+<arg>2</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-04-28T04:48:09.682920" elapsed="0.000115"/>
+</kw>
+<kw name="Delete User" owner="reqres">
 <kw name="DELETE" owner="RequestsLibrary">
-<msg time="2024-04-20T20:52:56.378867" level="INFO">DELETE Request : url=https://reqres.in/api/users/2 
+<msg time="2024-04-28T04:48:10.060321" level="INFO">DELETE Request : url=https://reqres.in/api/users/2 
  path_url=/api/users/2 
  headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
  body=None 
  </msg>
-<msg time="2024-04-20T20:52:56.378943" level="INFO">DELETE Response : url=https://reqres.in/api/users/2 
+<msg time="2024-04-28T04:48:10.060407" level="INFO">DELETE Response : url=https://reqres.in/api/users/2 
  status=204, reason=No Content 
- headers={'Date': 'Sat, 20 Apr 2024 20:52:56 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1713646376&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=cU5LLCKYBLU1DrIXjN6WlUW9vUjWRZjyqQcnNWKr3Lk%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1713646376&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=cU5LLCKYBLU1DrIXjN6WlUW9vUjWRZjyqQcnNWKr3Lk%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '8778055b08db0a85-IAD'} 
+ headers={'Date': 'Sun, 28 Apr 2024 04:48:10 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1714279689&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=bOZBYcWEf8edgb6doZnLz0X%2FAURs17tsSx6Y%2BNRTfU0%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1714279689&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=bOZBYcWEf8edgb6doZnLz0X%2FAURs17tsSx6Y%2BNRTfU0%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '87b46b1ccede6426-SJC'} 
  body=None 
  </msg>
-<msg time="2024-04-20T20:52:56.379977" level="INFO">${response} = &lt;Response [204]&gt;</msg>
+<msg time="2024-04-28T04:48:10.061614" level="INFO">${response} = &lt;Response [204]&gt;</msg>
 <var>${response}</var>
-<arg>url=${HOST}/users/2</arg>
-<arg>expected_status=204</arg>
+<arg>url=${HOST}/${USERS_PATH}/${id}</arg>
+<arg>expected_status=any</arg>
 <doc>Sends a DELETE request.</doc>
-<status status="PASS" start="2024-04-20T20:52:56.117568" elapsed="0.262432"/>
+<status status="PASS" start="2024-04-28T04:48:09.683369" elapsed="0.378270"/>
 </kw>
-<kw name="Header Should Be">
+<return>
+<value>${response}</value>
+<status status="PASS" start="2024-04-28T04:48:10.061708" elapsed="0.000042"/>
+</return>
+<msg time="2024-04-28T04:48:10.061879" level="INFO">${response} = &lt;Response [204]&gt;</msg>
+<var>${response}</var>
+<arg>id=${id}</arg>
+<status status="PASS" start="2024-04-28T04:48:09.683159" elapsed="0.378739"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>204</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2024-04-28T04:48:10.062058" elapsed="0.000164"/>
+</kw>
+<kw name="Header Should Be" owner="base">
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${response.headers}[${header}]</arg>
 <arg>${expected}</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:56.380467" elapsed="0.000450"/>
+<status status="PASS" start="2024-04-28T04:48:10.062596" elapsed="0.000468"/>
 </kw>
 <arg>${response}</arg>
-<arg>${CONTENT_lENGTH}</arg>
+<arg>${CONTENT_LENGTH}</arg>
 <arg>0</arg>
-<status status="PASS" start="2024-04-20T20:52:56.380167" elapsed="0.000801"/>
+<status status="PASS" start="2024-04-28T04:48:10.062342" elapsed="0.000778"/>
 </kw>
-<status status="PASS" start="2024-04-20T20:52:56.117200" elapsed="0.263853"/>
+<status status="PASS" start="2024-04-28T04:48:09.682600" elapsed="0.380611"/>
 </test>
-<test id="s1-s1-s1-t11" name="POST to /register with valid data should return status 200 and the registration id and token" line="152">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2024-04-20T20:52:56.381887" level="INFO">&amp;{request_data} = { email=eve.holt@reqres.in | password=pistol }</msg>
-<var>&amp;{request_data}</var>
-<arg>email=eve.holt@reqres.in</arg>
-<arg>password=pistol</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2024-04-20T20:52:56.381709" elapsed="0.000198"/>
-</kw>
-<kw name="POST" owner="RequestsLibrary">
-<msg time="2024-04-20T20:52:56.639462" level="INFO">POST Request : url=https://reqres.in/api/register 
- path_url=/api/register 
- headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '53', 'Content-Type': 'application/json'} 
- body=b'{"email": "eve.holt@reqres.in", "password": "pistol"}' 
- </msg>
-<msg time="2024-04-20T20:52:56.639548" level="INFO">POST Response : url=https://reqres.in/api/register 
- status=200, reason=OK 
- headers={'Date': 'Sat, 20 Apr 2024 20:52:56 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '36', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1713646376&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=cU5LLCKYBLU1DrIXjN6WlUW9vUjWRZjyqQcnNWKr3Lk%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1713646376&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=cU5LLCKYBLU1DrIXjN6WlUW9vUjWRZjyqQcnNWKr3Lk%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"24-4iP0za1geN2he+ohu8F0FhCjLks"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '8778055cbbfd0649-IAD'} 
- body={"id":4,"token":"QpwL5tke4Pnpja7X4"} 
- </msg>
-<msg time="2024-04-20T20:52:56.639658" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>url=${HOST}/register</arg>
-<arg>json=&amp;{request_data}</arg>
-<arg>expected_status=200</arg>
-<doc>Sends a POST request.</doc>
-<status status="PASS" start="2024-04-20T20:52:56.381990" elapsed="0.257687"/>
-</kw>
-<kw name="Header Should Be">
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${response.headers}[${header}]</arg>
-<arg>${expected}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:56.640212" elapsed="0.000461"/>
-</kw>
-<arg>${response}</arg>
-<arg>${CONTENT_TYPE}</arg>
-<arg>${APPLICATION_JSON}</arg>
-<status status="PASS" start="2024-04-20T20:52:56.639897" elapsed="0.000828"/>
-</kw>
-<kw name="Get JSON content">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-04-20T20:52:56.641468" level="INFO">&amp;{content} = { id=4 | token=QpwL5tke4Pnpja7X4 }</msg>
-<var>&amp;{content}</var>
-<arg>${response.json()}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-04-20T20:52:56.641028" elapsed="0.000460"/>
-</kw>
-<return>
-<value>&amp;{content}</value>
-<status status="PASS" start="2024-04-20T20:52:56.641530" elapsed="0.000034"/>
-</return>
-<msg time="2024-04-20T20:52:56.641693" level="INFO">&amp;{content} = { id=4 | token=QpwL5tke4Pnpja7X4 }</msg>
-<var>&amp;{content}</var>
-<arg>${response}</arg>
-<status status="PASS" start="2024-04-20T20:52:56.640834" elapsed="0.000877"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.id}</arg>
-<arg>${4}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:56.641789" elapsed="0.000565"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.token}</arg>
-<arg>QpwL5tke4Pnpja7X4</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:56.642440" elapsed="0.000353"/>
-</kw>
-<status status="PASS" start="2024-04-20T20:52:56.381291" elapsed="0.261588"/>
-</test>
-<test id="s1-s1-s1-t12" name="POST to /register with missing password should return status 400 and the validation error" line="164">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2024-04-20T20:52:56.643541" level="INFO">&amp;{request_data} = { email=sydney@fife }</msg>
-<var>&amp;{request_data}</var>
-<arg>email=sydney@fife</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2024-04-20T20:52:56.643373" elapsed="0.000187"/>
-</kw>
-<kw name="POST" owner="RequestsLibrary">
-<msg time="2024-04-20T20:52:56.904344" level="INFO">POST Request : url=https://reqres.in/api/register 
- path_url=/api/register 
- headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '24', 'Content-Type': 'application/json'} 
- body=b'{"email": "sydney@fife"}' 
- </msg>
-<msg time="2024-04-20T20:52:56.904425" level="INFO">POST Response : url=https://reqres.in/api/register 
- status=400, reason=Bad Request 
- headers={'Date': 'Sat, 20 Apr 2024 20:52:56 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '28', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1713646376&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=cU5LLCKYBLU1DrIXjN6WlUW9vUjWRZjyqQcnNWKr3Lk%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1713646376&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=cU5LLCKYBLU1DrIXjN6WlUW9vUjWRZjyqQcnNWKr3Lk%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"1c-NmpazMScs9tOqR7eDEesn+pqC9Q"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '8778055e5f665b47-IAD'} 
- body={"error":"Missing password"} 
- </msg>
-<msg time="2024-04-20T20:52:56.904548" level="INFO">${response} = &lt;Response [400]&gt;</msg>
-<var>${response}</var>
-<arg>url=${HOST}/register</arg>
-<arg>json=&amp;{request_data}</arg>
-<arg>expected_status=400</arg>
-<doc>Sends a POST request.</doc>
-<status status="PASS" start="2024-04-20T20:52:56.643639" elapsed="0.260932"/>
-</kw>
-<kw name="Header Should Be">
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${response.headers}[${header}]</arg>
-<arg>${expected}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:56.905078" elapsed="0.000499"/>
-</kw>
-<arg>${response}</arg>
-<arg>${CONTENT_TYPE}</arg>
-<arg>${APPLICATION_JSON}</arg>
-<status status="PASS" start="2024-04-20T20:52:56.904751" elapsed="0.000878"/>
-</kw>
-<kw name="Get JSON content">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-04-20T20:52:56.906322" level="INFO">&amp;{content} = { error=Missing password }</msg>
-<var>&amp;{content}</var>
-<arg>${response.json()}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-04-20T20:52:56.905933" elapsed="0.000408"/>
-</kw>
-<return>
-<value>&amp;{content}</value>
-<status status="PASS" start="2024-04-20T20:52:56.906381" elapsed="0.000033"/>
-</return>
-<msg time="2024-04-20T20:52:56.906537" level="INFO">&amp;{content} = { error=Missing password }</msg>
-<var>&amp;{content}</var>
-<arg>${response}</arg>
-<status status="PASS" start="2024-04-20T20:52:56.905736" elapsed="0.000818"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.error}</arg>
-<arg>Missing password</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:56.906640" elapsed="0.000365"/>
-</kw>
-<status status="PASS" start="2024-04-20T20:52:56.643045" elapsed="0.264047"/>
-</test>
-<test id="s1-s1-s1-t13" name="POST to /login with valid data should return status 200 and the login token" line="173">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2024-04-20T20:52:56.907748" level="INFO">&amp;{request_data} = { email=eve.holt@reqres.in | password=pistol }</msg>
-<var>&amp;{request_data}</var>
-<arg>email=eve.holt@reqres.in</arg>
-<arg>password=pistol</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2024-04-20T20:52:56.907574" elapsed="0.000193"/>
-</kw>
-<kw name="POST" owner="RequestsLibrary">
-<msg time="2024-04-20T20:52:57.167836" level="INFO">POST Request : url=https://reqres.in/api/login 
- path_url=/api/login 
- headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '53', 'Content-Type': 'application/json'} 
- body=b'{"email": "eve.holt@reqres.in", "password": "pistol"}' 
- </msg>
-<msg time="2024-04-20T20:52:57.167915" level="INFO">POST Response : url=https://reqres.in/api/login 
- status=200, reason=OK 
- headers={'Date': 'Sat, 20 Apr 2024 20:52:57 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '29', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1713646377&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=96DJiKYVWAMjXTocpJC59jRsP1kFbA5CfgxOLwT631A%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1713646377&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=96DJiKYVWAMjXTocpJC59jRsP1kFbA5CfgxOLwT631A%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"1d-lGCrvD6B7Qzk11+2C98+nGhhuec"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '8778055ffcff28a0-IAD'} 
- body={"token":"QpwL5tke4Pnpja7X4"} 
- </msg>
-<msg time="2024-04-20T20:52:57.169003" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<var>${response}</var>
-<arg>url=${HOST}/login</arg>
-<arg>json=&amp;{request_data}</arg>
-<arg>expected_status=200</arg>
-<doc>Sends a POST request.</doc>
-<status status="PASS" start="2024-04-20T20:52:56.907852" elapsed="0.261175"/>
-</kw>
-<kw name="Header Should Be">
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${response.headers}[${header}]</arg>
-<arg>${expected}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:57.169571" elapsed="0.000471"/>
-</kw>
-<arg>${response}</arg>
-<arg>${CONTENT_TYPE}</arg>
-<arg>${APPLICATION_JSON}</arg>
-<status status="PASS" start="2024-04-20T20:52:57.169249" elapsed="0.000901"/>
-</kw>
-<kw name="Get JSON content">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-04-20T20:52:57.170852" level="INFO">&amp;{content} = { token=QpwL5tke4Pnpja7X4 }</msg>
-<var>&amp;{content}</var>
-<arg>${response.json()}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-04-20T20:52:57.170458" elapsed="0.000414"/>
-</kw>
-<return>
-<value>&amp;{content}</value>
-<status status="PASS" start="2024-04-20T20:52:57.170914" elapsed="0.000035"/>
-</return>
-<msg time="2024-04-20T20:52:57.171076" level="INFO">&amp;{content} = { token=QpwL5tke4Pnpja7X4 }</msg>
-<var>&amp;{content}</var>
-<arg>${response}</arg>
-<status status="PASS" start="2024-04-20T20:52:57.170263" elapsed="0.000830"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.token}</arg>
-<arg>QpwL5tke4Pnpja7X4</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:57.171171" elapsed="0.000361"/>
-</kw>
-<status status="PASS" start="2024-04-20T20:52:56.907254" elapsed="0.264368"/>
-</test>
-<test id="s1-s1-s1-t14" name="POST to /login with missing password should return status 400 and the validation error" line="184">
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2024-04-20T20:52:57.172291" level="INFO">&amp;{request_data} = { email=peter@klaven }</msg>
-<var>&amp;{request_data}</var>
-<arg>email=peter@klaven</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2024-04-20T20:52:57.172125" elapsed="0.000185"/>
-</kw>
-<kw name="POST" owner="RequestsLibrary">
-<msg time="2024-04-20T20:52:57.421968" level="INFO">POST Request : url=https://reqres.in/api/login 
- path_url=/api/login 
- headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '25', 'Content-Type': 'application/json'} 
- body=b'{"email": "peter@klaven"}' 
- </msg>
-<msg time="2024-04-20T20:52:57.422040" level="INFO">POST Response : url=https://reqres.in/api/login 
- status=400, reason=Bad Request 
- headers={'Date': 'Sat, 20 Apr 2024 20:52:57 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '28', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1713646377&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=96DJiKYVWAMjXTocpJC59jRsP1kFbA5CfgxOLwT631A%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1713646377&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=96DJiKYVWAMjXTocpJC59jRsP1kFbA5CfgxOLwT631A%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"1c-NmpazMScs9tOqR7eDEesn+pqC9Q"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '87780561997a20cf-IAD'} 
- body={"error":"Missing password"} 
- </msg>
-<msg time="2024-04-20T20:52:57.422146" level="INFO">${response} = &lt;Response [400]&gt;</msg>
-<var>${response}</var>
-<arg>url=${HOST}/login</arg>
-<arg>json=&amp;{request_data}</arg>
-<arg>expected_status=400</arg>
-<doc>Sends a POST request.</doc>
-<status status="PASS" start="2024-04-20T20:52:57.172387" elapsed="0.249778"/>
-</kw>
-<kw name="Header Should Be">
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${response.headers}[${header}]</arg>
-<arg>${expected}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:57.422630" elapsed="0.000453"/>
-</kw>
-<arg>${response}</arg>
-<arg>${CONTENT_TYPE}</arg>
-<arg>${APPLICATION_JSON}</arg>
-<status status="PASS" start="2024-04-20T20:52:57.422327" elapsed="0.000808"/>
-</kw>
-<kw name="Get JSON content">
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-04-20T20:52:57.423823" level="INFO">&amp;{content} = { error=Missing password }</msg>
-<var>&amp;{content}</var>
-<arg>${response.json()}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-04-20T20:52:57.423433" elapsed="0.000410"/>
-</kw>
-<return>
-<value>&amp;{content}</value>
-<status status="PASS" start="2024-04-20T20:52:57.423885" elapsed="0.000033"/>
-</return>
-<msg time="2024-04-20T20:52:57.424041" level="INFO">&amp;{content} = { error=Missing password }</msg>
-<var>&amp;{content}</var>
-<arg>${response}</arg>
-<status status="PASS" start="2024-04-20T20:52:57.423242" elapsed="0.000817"/>
-</kw>
-<kw name="Should Be Equal" owner="BuiltIn">
-<arg>${content.error}</arg>
-<arg>Missing password</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2024-04-20T20:52:57.424136" elapsed="0.000367"/>
-</kw>
-<status status="PASS" start="2024-04-20T20:52:57.171778" elapsed="0.252811"/>
-</test>
-<doc>ReqRes API Test Suite</doc>
-<status status="PASS" start="2024-04-20T20:52:53.965048" elapsed="3.459982"/>
+<doc>ReqRes API Users endpoints Test Suite</doc>
+<status status="PASS" start="2024-04-28T04:48:08.095536" elapsed="1.967938"/>
 </suite>
-<status status="PASS" start="2024-04-20T20:52:53.964116" elapsed="3.461557"/>
+<status status="PASS" start="2024-04-28T04:48:05.660619" elapsed="4.403363"/>
 </suite>
-<status status="PASS" start="2024-04-20T20:52:53.943563" elapsed="3.482644"/>
+<status status="PASS" start="2024-04-28T04:48:05.640367" elapsed="4.424120"/>
 </suite>
 <statistics>
 <total>
@@ -1415,7 +1256,10 @@
 <suite>
 <stat pass="14" fail="0" skip="0" id="s1" name="Robot-Api-Tests">Robot-Api-Tests</stat>
 <stat pass="14" fail="0" skip="0" id="s1-s1" name="Tests">Robot-Api-Tests.Tests</stat>
-<stat pass="14" fail="0" skip="0" id="s1-s1-s1" name="Reqres">Robot-Api-Tests.Tests.Reqres</stat>
+<stat pass="3" fail="0" skip="0" id="s1-s1-s1" name="Colors">Robot-Api-Tests.Tests.Colors</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1-s2" name="Login">Robot-Api-Tests.Tests.Login</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1-s3" name="Register">Robot-Api-Tests.Tests.Register</stat>
+<stat pass="7" fail="0" skip="0" id="s1-s1-s4" name="Users">Robot-Api-Tests.Tests.Users</stat>
 </suite>
 </statistics>
 <errors>
